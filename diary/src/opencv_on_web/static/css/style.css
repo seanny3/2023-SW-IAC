@@ -1,0 +1,54 @@
+.container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 100vh;
+}
+.video-container {
+    width: 640px;
+    height: 480px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 20px;
+    border: 1px solid #666;
+    border-radius: 3px;
+}
+.video-container > img {
+    width: 100%; 
+    height: 100%;
+}
+.video-method-header {
+    display: flex;
+    position: absolute;
+    top: -43px;
+    justify-content: space-between;
+    width: 100%;
+}
+.video-type {
+    display: flex;
+}
+.video-type > button {
+    width: 80px;
+    margin-right: 4px;
+}
+.video-upload-form > form > input[type=submit],
+.video-upload-form > form > input[type=file]::file-selector-button {
+    width: 90px;
+    height: 34px;
+    color: #fff;
+    background-color: #0d6efd;
+    border: 1px solid #0d6efd;
+    border-radius: 5px;
+}
+.video-upload-form > form > input[type=submit]:hover,
+.video-upload-form > form > input[type=file]::file-selector-button:hover {
+    cursor: pointer;
+    background-color: #0a58ca;
+    border: 1px solid #0a58ca;
+}
+.video-upload-form {
+    position: absolute;
+    bottom: -40px;
+    right: 0;
+}
