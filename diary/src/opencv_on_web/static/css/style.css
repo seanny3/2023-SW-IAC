@@ -10,13 +10,15 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    margin: 0 20px;
     border: 1px solid #666;
     border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #000;
 }
 .video-container > img {
-    width: 100%; 
-    height: 100%;
+    width: 100%;
 }
 .video-method-header {
     display: flex;
@@ -29,26 +31,44 @@
     display: flex;
 }
 .video-type > button {
-    width: 80px;
     margin-right: 4px;
-}
-.video-upload-form > form > input[type=submit],
-.video-upload-form > form > input[type=file]::file-selector-button {
-    width: 90px;
-    height: 34px;
-    color: #fff;
-    background-color: #0d6efd;
-    border: 1px solid #0d6efd;
-    border-radius: 5px;
-}
-.video-upload-form > form > input[type=submit]:hover,
-.video-upload-form > form > input[type=file]::file-selector-button:hover {
-    cursor: pointer;
-    background-color: #0a58ca;
-    border: 1px solid #0a58ca;
 }
 .video-upload-form {
     position: absolute;
-    bottom: -40px;
+    bottom: -44px;
     right: 0;
+}
+
+.opencv-func-category {
+    display: flex;
+}
+.opencv-func-btn {
+    margin-left: 4px;
+}
+.opencv-func-btn > button {
+    position: relative;
+}
+.opencv-func-used {
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    color: #000;
+    font-size: 12px;
+}
+
+.video-method-right {
+    position: absolute;
+    top: 0;
+    right: -48px;
+}
+.opencv-func-category2 {
+    display: flex;
+    flex-direction: column;
+}
+.opencv-func-category2 > a {
+    margin-bottom: 4px;
 }
