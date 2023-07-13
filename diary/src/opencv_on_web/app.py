@@ -83,8 +83,8 @@ def gen_frames(file):
     model_name = os.listdir("./resources/model/")
     if model_name:
         # model = torch.hub.load('../../../../yolov7', 'custom',  './resources/model/uploaded.pt', source='local')
-        # model = torch.hub.load('../../../../yolov5', 'custom',  './yolov5s.pt', source='local')
-        model = YOLO('./resources/model/uploaded.pt')
+        model = torch.hub.load('../../../../yolov5', 'custom',  '../../../../yolov5/yolov5s.pt', source='local')
+        # model = YOLO('./resources/model/uploaded.pt')
     
     ext = file.split(".")[-1]
     
@@ -191,18 +191,18 @@ def gen_frames(file):
 
                     # 객체 인식
                     results = model(pil_image)
-                    frame = results[0].plot()
-                    # # bounding box 처리
-                    # boxes = results.xyxy[0]  # (x1, y1, x2, y2) 형식의 bounding box 좌표
-                    # confidences = results.xyxy[0][:, 4]  # bounding box의 신뢰도
+                    # frame = results[0].plot()     # YOLOv8
+                    # bounding box 처리
+                    boxes = results.xyxy[0]  # (x1, y1, x2, y2) 형식의 bounding box 좌표
+                    confidences = results.xyxy[0][:, 4]  # bounding box의 신뢰도
 
-                    # for box, confidence in zip(boxes, confidences):
-                    #     x1, y1, x2, y2 = map(int, box[:4])
-                    #     label = f'{results.names[int(box[5])]} {confidence:.2f}'  # 객체 클래스와 신뢰도
+                    for box, confidence in zip(boxes, confidences):
+                        x1, y1, x2, y2 = map(int, box[:4])
+                        label = f'{results.names[int(box[5])]} {confidence:.2f}'  # 객체 클래스와 신뢰도
 
-                    #     # bounding box 그리기
-                    #     cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
-                    #     cv2.putText(frame, label, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 1.4, (0, 255, 0), 2)               
+                        # bounding box 그리기
+                        cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
+                        cv2.putText(frame, label, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 1.4, (0, 255, 0), 2)               
                 
                 end_time = time()
                 fps = 1/np.round(end_time - start_time, 3)
