@@ -17,9 +17,6 @@
     justify-content: center;
     background-color: #000;
 }
-.video-container > img {
-    width: 100%;
-}
 .video-method-header {
     display: flex;
     position: absolute;
@@ -34,9 +31,30 @@
     margin-right: 4px;
 }
 .video-upload-form {
+    display: flex;
+    justify-content: space-between;
     position: absolute;
     bottom: -44px;
     right: 0;
+}
+.video-upload-form > form {
+    width: 49%;
+}
+.custom-file-button input[type="file"] {
+	margin-left: -2px !important;
+}
+
+.custom-file-button input[type="file"]::-webkit-file-upload-button {
+	display: none;
+}
+
+.custom-file-button input[type="file"]::file-selector-button {
+	display: none;
+}
+
+.custom-file-button:hover label {
+	background-color: #dde0e3;
+	cursor: pointer;
 }
 
 .opencv-func-category {

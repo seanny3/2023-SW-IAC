@@ -59,9 +59,12 @@
                 <span class="opencv-func-used opencv-filter-used"></span>
               </button>
               <ul class="dropdown-menu">
-                <li><a id="filter-avg" class="cv dropdown-item" href="#">[Filter] average</a></li>
-                <li><a id="filter-med" class="cv dropdown-item" href="#">[Filter] median</a></li>
-                <li><a id="filter-gaus" class="cv dropdown-item" href="#">[Filter] gaussian</a></li>
+                <li><a id="filter-avg" class="cv dropdown-item" href="#">[LPF] average</a></li>
+                <li><a id="filter-med" class="cv dropdown-item" href="#">[LPF] median</a></li>
+                <li><a id="filter-gaus" class="cv dropdown-item" href="#">[LPF] gaussian</a></li>
+                <li><a id="filter-sharp1" class="cv dropdown-item" href="#">[HPF] sharpening</a></li>
+                <li><a id="filter-sharp2" class="cv dropdown-item" href="#">[HPF] Excessive-sharpening</a></li>
+                <li><a id="filter-sharp3" class="cv dropdown-item" href="#">[HPF] edege-enhancement</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a id="filter-init" class="cv dropdown-item" href="#">초기화</a></li>
               </ul>
@@ -86,10 +89,18 @@
         </div>
         <img src="/cam" alt="동영상을 업로드 하세요.">
         <div class="video-upload-form">
-          <form action="/upload" method="post" enctype="multipart/form-data">
-            <div class="input-group">
-              <input type="file" name="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-              <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04"><i class="fa-solid fa-upload"></i></button>
+          <form action="/upload/video" method="post" enctype="multipart/form-data">
+            <div class="input-group custom-file-button">
+              <label class="input-group-text" for="video-upload-select">비디오 선택</label>
+              <input type="file" name="file" class="form-control" id="video-upload-select" aria-describedby="video-upload-select" aria-label="Upload">
+              <button class="btn btn-outline-secondary" type="submit" id="video-upload-submit"><i class="fa-solid fa-upload"></i></button>
+            </div>
+          </form>
+          <form action="/upload/model" method="post" enctype="multipart/form-data">
+            <div class="input-group custom-file-button">
+              <label class="input-group-text" for="model-upload-select">모델 선택</label>
+              <input type="file" name="file" class="form-control" id="model-upload-select" aria-describedby="model-upload-submit" aria-label="Upload">
+              <button class="btn btn-outline-secondary" type="submit" id="model-upload-submit"><i class="fa-solid fa-upload"></i></button>
             </div>
           </form>
         </div>

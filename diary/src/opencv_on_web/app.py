@@ -2,9 +2,12 @@
 from flask import Flask, render_template, Response, request, redirect, url_for, jsonify
 import cv2
 import torch
+from PIL import Image
 import os
 import numpy as np
-from utils import add_salt_and_pepper_noise, add_gaussian_noise, bg_removal
+from time import time
+from ultralytics import YOLO
+from futils import add_salt_and_pepper_noise, add_gaussian_noise, bg_removal
 
 app = Flask(__name__)
 global cv_noise, cv_filter, cv_edge, cv_cvt, cv_tf
@@ -17,33 +20,51 @@ cv_tf = []
 global angle
 angle = 90
 
-# model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True)
-
+# init_file_names = os.listdir('./resources/video')
+# for file_name in init_file_names:
+#     os.remove('./resources/video/' + file_name)
+    
+# init_model_names = os.listdir('./resources/model')
+# for model_name in init_model_names:
+#     os.remove('./resources/model/' + model_name)
+    
 @app.route('/')
 def video_show():
     return render_template('index.html')
 
-@app.route('/upload', methods=['POST'])
-def upload():
-    file_names = os.listdir('./resources')
+@app.route('/upload/video', methods=['POST'])
+def upload_video():
+    file_names = os.listdir('./resources/video')
     
     for file_name in file_names:
-        os.remove('./resources/' + file_name)
+        os.remove('./resources/video/' + file_name)
     
     file = request.files['file']
     ext = file.filename.split(".")[-1]
-    file_path = './resources/uploaded.' + ext
+    file_path = './resources/video/uploaded.' + ext
+    file.save(file_path)
+    return redirect("/")
+
+@app.route('/upload/model', methods=['POST'])
+def upload_model():
+    file_names = os.listdir('./resources/model')
+    
+    for file_name in file_names:
+        os.remove('./resources/model/' + file_name)
+    
+    file = request.files['file']
+    ext = file.filename.split(".")[-1]
+    file_path = './resources/model/uploaded.' + ext
     file.save(file_path)
     return redirect("/")
 
 @app.route('/video')
 def video():
-    file_name = os.listdir('./resources')
+    file_name = os.listdir('./resources/video')
     if file_name:
-        return Response(gen_frames('./resources/' + file_name[0]), mimetype='multipart/x-mixed-replace; boundary=frame')
+        return Response(gen_frames('./resources/video/' + file_name[0]), mimetype='multipart/x-mixed-replace; boundary=frame')
     else:
         return Response("none")
-
 
 @app.route('/cam')
 def cam():
@@ -57,6 +78,13 @@ def gen_frames(file):
     cv_cvt = ''
     cv_tf = []
     global angle
+    angle = 90
+    
+    model_name = os.listdir("./resources/model/")
+    if model_name:
+        # model = torch.hub.load('../../../../yolov7', 'custom',  './resources/model/uploaded.pt', source='local')
+        # model = torch.hub.load('../../../../yolov5', 'custom',  './yolov5s.pt', source='local')
+        model = YOLO('./resources/model/uploaded.pt')
     
     ext = file.split(".")[-1]
     
@@ -64,6 +92,8 @@ def gen_frames(file):
         cap = cv2.VideoCapture(0 if ext == "0" else file)
         
         while True:
+            start_time = time()
+            
             ret, frame = cap.read()
             
             if not ret:
@@ -71,9 +101,6 @@ def gen_frames(file):
                 continue
             
             else:
-                # results = model(frame)
-                # annotated_frame = results.render()
-                
                 # 이미지 변환
                 if 'rotate90' in cv_tf:
                     height, width = frame.shape[:2]
@@ -102,6 +129,15 @@ def gen_frames(file):
                     frame = cv2.medianBlur(frame, 3)
                 elif cv_filter == 'gaus':
                     frame = cv2.GaussianBlur(frame, (5,5), 1)
+                elif cv_filter == 'sharp1':
+                    kernel = np.array([[-1,-1,-1],[-1,9,-1],[-1,-1,-1]])
+                    frame = cv2.filter2D(frame, -1, kernel)
+                elif cv_filter == 'sharp2':
+                    kernel = np.array([[1,1,1],[1,-7,1],[1,1,1]])
+                    frame = cv2.filter2D(frame, -1, kernel)
+                elif cv_filter == 'sharp3':
+                    kernel = np.array([[-1,-1,-1,-1,-1],[-1,2,2,2,-1],[-1,2,8,2,-1],[-1,2,2,2,-1],[-1,-1,-1,-1,-1]])/8.0
+                    frame = cv2.filter2D(frame, -1, kernel)
                 
                 # 윤곽선 검출 기능 - 그레이스케일 필수
                 if cv_edge:
@@ -149,6 +185,28 @@ def gen_frames(file):
                 elif cv_edge == 'laplacian':
                     frame = cv2.Laplacian(frame, -1)
                 
+                if model_name:
+                    # OpenCV 이미지를 PIL 이미지로 변환
+                    pil_image = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+
+                    # 객체 인식
+                    results = model(pil_image)
+                    frame = results[0].plot()
+                    # # bounding box 처리
+                    # boxes = results.xyxy[0]  # (x1, y1, x2, y2) 형식의 bounding box 좌표
+                    # confidences = results.xyxy[0][:, 4]  # bounding box의 신뢰도
+
+                    # for box, confidence in zip(boxes, confidences):
+                    #     x1, y1, x2, y2 = map(int, box[:4])
+                    #     label = f'{results.names[int(box[5])]} {confidence:.2f}'  # 객체 클래스와 신뢰도
+
+                    #     # bounding box 그리기
+                    #     cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
+                    #     cv2.putText(frame, label, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 1.4, (0, 255, 0), 2)               
+                
+                end_time = time()
+                fps = 1/np.round(end_time - start_time, 3)
+                cv2.putText(frame, f"FPS: {fps:.3f}", (30, 70), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 3)
                 ret, buffer = cv2.imencode('.jpg', frame)
                 frame = buffer.tobytes()
 
