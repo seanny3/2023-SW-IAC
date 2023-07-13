@@ -204,9 +204,11 @@ def gen_frames(file):
                         cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
                         cv2.putText(frame, label, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 1.4, (0, 255, 0), 2)               
                 
-                end_time = time()
-                fps = 1/np.round(end_time - start_time, 3)
-                cv2.putText(frame, f"FPS: {fps:.3f}", (30, 70), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 3)
+                    end_time = time()
+                    fps = 1/np.round(end_time - start_time, 3)
+                    cv2.putText(frame, f"FPS: {fps:.3f}", (30, 70), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 3)
+                    
+                    
                 ret, buffer = cv2.imencode('.jpg', frame)
                 frame = buffer.tobytes()
 
