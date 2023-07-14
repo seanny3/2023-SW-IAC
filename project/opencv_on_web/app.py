@@ -82,8 +82,10 @@ def gen_frames(file):
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, size[0])
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, size[1])
     
+    fps = 0
+    frame_count = 0
+    start_time = time()
     while True:
-        start_time = time()
         ret, frame = cap.read()
         
         if cam_stop:
@@ -218,17 +220,21 @@ def gen_frames(file):
             
             frame = base_frame
             
-            try:
-                end_time = time()
-                fps = 1./(end_time - start_time)
-                cv2.putText(frame, f"FPS: {fps:.3f}", (15, 35), cv2.FONT_HERSHEY_SIMPLEX, .8, (0, 0, 255), 1)
-            except:
-                fps = 0.0                 
+            # 1초당 몇 개 프레임인지
+            frame_count += 1
+            current_time = time()
+            elapsed_time = current_time - start_time
+            
+            if elapsed_time > 1.0:
+                fps = frame_count
+                start_time = current_time
+                frame_count = 0
+                           
+            cv2.putText(frame, f"FPS: {fps}", (15, 35), cv2.FONT_HERSHEY_SIMPLEX, .8, (0, 0, 255), 1)
                 
             ret, buffer = cv2.imencode('.jpg', frame)
             frame = buffer.tobytes()
-            
-            cv2.waitKey(int(1000 / 50))  # 1 frame/sec
+
 
         yield (b'--frame\r\n'
             b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
