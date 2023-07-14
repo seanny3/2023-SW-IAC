@@ -79,14 +79,26 @@
 }
 
 .video-method-right {
+    height: 100%;
     position: absolute;
     top: 0;
     right: -48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .opencv-func-category2 {
     display: flex;
     flex-direction: column;
 }
 .opencv-func-category2 > a {
+    margin-bottom: 4px;
+}
+
+.func-init {
+    display: flex;
+    flex-direction: column;
+}
+.func-init > a {
     margin-bottom: 4px;
 }

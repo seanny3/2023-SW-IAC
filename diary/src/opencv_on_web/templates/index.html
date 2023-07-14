@@ -92,14 +92,14 @@
           <form action="/upload/video" method="post" enctype="multipart/form-data">
             <div class="input-group custom-file-button">
               <label class="input-group-text" for="video-upload-select">비디오 선택</label>
-              <input type="file" name="file" class="form-control" id="video-upload-select" aria-describedby="video-upload-select" aria-label="Upload">
+              <input type="file" name="file" accept="video/*" class="form-control" id="video-upload-select" aria-describedby="video-upload-select" aria-label="Upload">
               <button class="btn btn-outline-secondary" type="submit" id="video-upload-submit"><i class="fa-solid fa-upload"></i></button>
             </div>
           </form>
           <form action="/upload/model" method="post" enctype="multipart/form-data">
             <div class="input-group custom-file-button">
               <label class="input-group-text" for="model-upload-select">모델 선택</label>
-              <input type="file" name="file" class="form-control" id="model-upload-select" aria-describedby="model-upload-submit" aria-label="Upload">
+              <input type="file" accept=".pt, .pth" name="file" class="form-control" id="model-upload-select" aria-describedby="model-upload-submit" aria-label="Upload">
               <button class="btn btn-outline-secondary" type="submit" id="model-upload-submit"><i class="fa-solid fa-upload"></i></button>
             </div>
           </form>
@@ -109,6 +109,10 @@
             <a id="tf-rotate90" class="cv btn btn-outline-primary" href="#"><i class="fa-solid fa-rotate-right"></i></a>
             <a id="tf-leftright" class="cv btn btn-outline-primary" href="#"><i class="fa-solid fa-rotate"></i></a>
             <a id="tf-updown" class="cv btn btn-outline-primary" href="#"><i class="fa-solid fa-rotate" style="transform: rotate(90deg)"></i></a>
+          </div>
+          <div class="func-init">
+            <!-- <a id="opencv-init" class="btn btn-danger" href="#"><i class="fa-regular fa-trash-can"></i></a> -->
+            <a id="resources-init" class="btn btn-danger" href="#"><i class="fa-regular fa-trash-can"></i></a>
           </div>
         </div>
       </div>
@@ -170,7 +174,25 @@
           }
         })
       })      
-    </script> 
+    </script>
+
+    <script>
+      $("#resources-init").click((e) => {
+        $.ajax({ 
+          url: "/init/resources",
+          type: "POST",
+          contentType: "application/json",
+          success: function(result) {
+            if (result) {
+              console.log(`[init] success!`);
+            }
+          },
+          error: function() {
+            console.log(`[init] fail!`);
+          }
+        })
+      })
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   </body>
