@@ -7,7 +7,7 @@
     </a>
     &emsp;&emsp;&emsp;
     <a href="https://www.kmu.ac.kr/uni/main/main.jsp">
-        <img src="./img/kmu_logo.jpg" width="22%"/>
+        <img src="./img/kmu_logo.jpg" width="20%"/>
     </a>
 </div>
 
@@ -15,9 +15,11 @@
 
 <div align="center">
     <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=Python&logoColor=white"/>
+    <img src="https://img.shields.io/badge/OpenCV-5C3EE8?style=flat&logo=OpenCV&logoColor=white"/>
     <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=Pytorch&logoColor=white"/>
     <img src="https://img.shields.io/badge/YOLO-00FFFF?style=flat&logo=YOLO&&logoColor=black"/>
     <img src="https://img.shields.io/badge/Colab-F9AB00?style=flat&logo=GoogleColab&logoColor=white"/>
+    
 </div>
 
 &emsp;
