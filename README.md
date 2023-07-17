@@ -1,6 +1,6 @@
 <img src="https://capsule-render.vercel.app/api?type=transparent&fontColor=703ee5&height=200&section=header&fontSize=38&text=👨🏻‍💼%202023%20지역산업%20SW인재양성%20기반조성사업" />
 
-<div style="margin-bottom: 60px;">
+<div style="margin: 0 0 60px 0 ;">
 <div style="margin-bottom: 30px;">
 <div align="center">
     <a href="https://www.dip.or.kr/home/business/sw/swtalentdevelop/view.ubs?business.fidx=5" >
