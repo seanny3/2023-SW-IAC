@@ -1,11 +1,12 @@
 <img src="https://capsule-render.vercel.app/api?type=transparent&fontColor=703ee5&height=200&section=header&fontSize=38&text=👨🏻‍💼%202023%20지역산업%20SW인재양성%20기반조성사업" />
 
-<div align="center" style="margin-bottom:30px;">
+<div align="center" style="margin-bottom:60px;">
     <a href="https://www.dip.or.kr/home/business/sw/swtalentdevelop/view.ubs?business.fidx=5" >
         <img src="./img/dip_logo.svg"/>
     </a>
 </div>
-<div align="center">
+
+<div align="center" style="margin-bottom:60px;">
     <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=Python&logoColor=white"/>
     <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=Pytorch&logoColor=white"/>
     <img src="https://img.shields.io/badge/YOLO-00FFFF?style=flat&logo=YOLO&&logoColor=black"/>
@@ -27,12 +28,18 @@
     - ✅ (03월~06월) 프로젝트 공동기획 및 기업 설명회
     - (07월~08월) 단기 현장실습(여름방학)
     - (09월~12월) 산학협력프로젝트(2학기)
-## 📌 하계 단기 현장실습 
+## 📌 하계 단기 현장실습
+<center>
+
 |📅 활동기간|🏬 근무지|📖 내용|
 |:---:|:---:|:---:|
 |2023.07.03 ~ 2023.08.31|(주)라온에이치씨|AI기반의 영상(객체) 처리기술을 통한 인식·분석시스템 개발|
 
+</center>
+
 ### 📒 근무 일지
+<center>
+
 |주차|📅 날짜|📖 내용|
 |:---:|:---:|:---:|
 |1주차|07.03 ~ 07.07|**[1일차](./diary/0703.md)**, **[2일차](./diary/0704.md)**, **[3일차](./diary/0705.md)**, **[4일차](./diary/0706.md)**, **[5일차](./diary/0707.md)**|
@@ -44,7 +51,12 @@
 |7주차|08.14 ~ 08.18||
 |8주차|08.21 ~ 08.25||
 
+</center>
+
 ## 📌 산학협력 프로젝트 (변동가능)
+
+<center>
+
 |연번|일시|내용|
 |:---:|:---:|:---:|
 |1|2023.08.|참여기업 모집 및 과제선정|
@@ -55,3 +67,5 @@
 |6|2023.09. ~ 12.xx|프로젝트 수행|
 |7|2023.11.|프로젝트 중간 발표회|
 |8|2023.12.|프로젝트 결과보고 및 결과발표회 참가|
+
+</center>
