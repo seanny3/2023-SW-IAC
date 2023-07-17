@@ -1,4 +1,4 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&height=230&section=header&fontSize=50&color=timeAuto&fontAlignY=36&text=👨🏻‍💼%202023%20산학협력%20프로젝트&desc=%202023%20지역산업%20SW인재양성%20기반조성사업&descAlignY=54&descAlign=64" />
+<img src="https://capsule-render.vercel.app/api?type=waving&height=250&section=header&fontSize=50&color=timeAuto&fontAlignY=36&text=👨🏻‍💼%202023%20산학협력%20프로젝트&desc=%202023%20지역산업%20SW인재양성%20기반조성사업&descAlignY=54&descAlign=64" />
 
 
 <div align="center">
@@ -55,7 +55,7 @@
     - 데이터별 라벨링, 학습 검지 테스트, 결과 분석 등 업무 수행
     - 미·오인식에 대한 원인 분석 및 인식률 향상 방안 모색 
 - 운영/지도계획
-    - 수행시간: 월-금(주 5일, 공휴일 제외) 09:00~18:00 (점심시간 12:30~13:30)
+    - 수행시간: 월-금(주 5일, 공휴일 제외) 09:00-18:00 (점심시간 12:30-13:30)
     - 개인별 수행과제 부여(업무 파트별, 실습자의 수행 능력에 따라 차등 부여)
     - 주 1회 멘토와의 면담을 통해 수행 평가 및 변경사항 등을 체크
     - 주 3회 이상 기업 참여 인력과의 면담을 통해 프로젝터 진행 사항 체크
