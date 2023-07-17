@@ -2,8 +2,12 @@
 
 
 <div align="center">
-    <a href="https://www.dip.or.kr/home/business/sw/swtalentdevelop/view.ubs?business.fidx=5" >
+    <a href="https://www.dip.or.kr/home/business/sw/swtalentdevelop/view.ubs?business.fidx=5">
         <img src="./img/dip_logo.svg"/>
+    </a>
+    &emsp;&emsp;&emsp;
+    <a href="https://www.kmu.ac.kr/uni/main/main.jsp">
+        <img src="./img/kmu_logo.jpg" width="22%"/>
     </a>
 </div>
 
