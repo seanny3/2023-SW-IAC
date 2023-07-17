@@ -1,4 +1,4 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&height=230&section=header&fontSize=50&color=timeAuto&fontAlignY=36&text=%202023%20산학협력%20프로젝트&desc=%202023%20지역산업%20SW인재양성%20기반조성사업&descAlignY=54&descAlign=60" />
+<img src="https://capsule-render.vercel.app/api?type=waving&height=230&section=header&fontSize=50&color=timeAuto&fontAlignY=36&text=👨🏻‍💼%202023%20산학협력%20프로젝트&desc=%202023%20지역산업%20SW인재양성%20기반조성사업&descAlignY=54&descAlign=64" />
 
 
 <div align="center">
