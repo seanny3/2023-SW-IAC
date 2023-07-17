@@ -1,20 +1,16 @@
 <img src="https://capsule-render.vercel.app/api?type=transparent&fontColor=703ee5&height=200&section=header&fontSize=38&text=👨🏻‍💼%202023%20지역산업%20SW인재양성%20기반조성사업" />
 
-<div style="margin: 0 0 60px 0 ;">
-<div style="margin-bottom: 30px;">
 <div align="center">
-    <a href="https://www.dip.or.kr/home/business/sw/swtalentdevelop/view.ubs?business.fidx=5" >
+    <a href="https://www.dip.or.kr/home/business/sw/swtalentdevelop/view.ubs?business.fidx=5">
         <img src="./img/dip_logo.svg"/>
     </a>
 </div>
-</div>
 
-<div align="center">
-    <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=Python&logoColor=white"/>
-    <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=Pytorch&logoColor=white"/>
-    <img src="https://img.shields.io/badge/YOLO-00FFFF?style=flat&logo=YOLO&&logoColor=black"/>
-    <img src="https://img.shields.io/badge/Colab-F9AB00?style=flat&logo=GoogleColab&logoColor=white"/>
-</div>
+<div style="display:flex; justify-content:center; margin-bottom:60px;">
+    <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=Python&logoColor=white" style="margin:0 3px;"/>
+    <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=Pytorch&logoColor=white" style="margin:0 3px;"/>
+    <img src="https://img.shields.io/badge/YOLO-00FFFF?style=flat&logo=YOLO&&logoColor=black" style="margin:0 3px;"/>
+    <img src="https://img.shields.io/badge/Colab-F9AB00?style=flat&logo=GoogleColab&logoColor=white" style="margin:0 3px;"/>
 </div>
 
 ## 📌 지역산업 SW인재양성 기반조성사업
