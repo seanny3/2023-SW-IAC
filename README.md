@@ -1,4 +1,5 @@
-<img src="https://capsule-render.vercel.app/api?type=transparent&fontColor=703ee5&height=200&section=header&fontSize=38&text=👨🏻‍💼%202023%20지역산업%20SW인재양성%20기반조성사업" />
+<img src="https://capsule-render.vercel.app/api?type=waving&height=230&section=header&fontSize=50&color=timeAuto&fontAlignY=36&text=%202023%20산학협력%20프로젝트&desc=%202023%20지역산업%20SW인재양성%20기반조성사업&descAlignY=54&descAlign=60" />
+
 
 <div align="center">
     <a href="https://www.dip.or.kr/home/business/sw/swtalentdevelop/view.ubs?business.fidx=5" >
@@ -28,9 +29,9 @@
 - **산학협력 프로젝트란?** 기업이 제안한 SW개발 과제 중심, 기업(멘토)-학생(멘티)이 현업하는 산학협력프로젝트 과정을 수행하여 현장실무+SW개발 역량 강화 및 조기 취업 달성을 위한 프로그램
 - 학기 중에 프로젝트 팀을 구성하여 기업에서 제안한 SW개발 과제 프로젝트 공동 수행
 - **기획형 마스터과정**: 
-    - ✅ (03월~06월) 프로젝트 공동기획 및 기업 설명회
-    - (07월~08월) 단기 현장실습(여름방학)
-    - (09월~12월) 산학협력프로젝트(2학기)
+    1. ✅ (03월~06월) 프로젝트 공동기획 및 기업 설명회
+    2. ❌ (07월~08월) 단기 현장실습(여름방학)
+    3. ❌ (09월~12월) 산학협력프로젝트(2학기)
 
 &emsp;
 
