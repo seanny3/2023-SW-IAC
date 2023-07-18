@@ -140,6 +140,7 @@ def gen_frames(file):
             # 필터링 기능
             if cv_filter == 'avg':
                 frame = cv2.blur(frame, (3,3))
+            
             elif cv_filter == 'med':
                 frame = cv2.medianBlur(frame, 3)
             elif cv_filter == 'gaus':
