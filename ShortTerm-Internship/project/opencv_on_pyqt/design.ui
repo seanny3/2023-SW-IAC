@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>935</width>
-    <height>550</height>
+    <width>950</width>
+    <height>570</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>935</width>
-    <height>550</height>
+    <width>950</width>
+    <height>570</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>935</width>
-    <height>550</height>
+    <width>950</width>
+    <height>570</height>
    </size>
   </property>
   <property name="font">
@@ -37,12 +37,15 @@
     color: rgb(0,0,0);
 }</string>
   </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label_camView">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>10</y>
+      <x>290</x>
+      <y>30</y>
       <width>640</width>
       <height>480</height>
      </rect>
@@ -63,10 +66,10 @@
    <widget class="QToolBox" name="toolbox_opencv">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>241</width>
-      <height>481</height>
+      <x>20</x>
+      <y>20</y>
+      <width>257</width>
+      <height>498</height>
      </rect>
     </property>
     <property name="maximumSize">
@@ -87,19 +90,22 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
-     <string notr="true">
+     <string notr="true">QToolBox{
+	background-color: transparent;
+}
+QLine {background-color: black;}
 </string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="page">
      <property name="geometry">
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>241</width>
-       <height>321</height>
+       <width>257</width>
+       <height>358</height>
       </rect>
      </property>
      <attribute name="label">
@@ -110,7 +116,7 @@
        <rect>
         <x>10</x>
         <y>0</y>
-        <width>221</width>
+        <width>241</width>
         <height>31</height>
        </rect>
       </property>
@@ -181,8 +187,8 @@ QRadioButton {
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>241</width>
-       <height>321</height>
+       <width>257</width>
+       <height>358</height>
       </rect>
      </property>
      <property name="minimumSize">
@@ -217,35 +223,37 @@ QRadioButton {
        <rect>
         <x>10</x>
         <y>0</y>
-        <width>221</width>
-        <height>125</height>
+        <width>241</width>
+        <height>141</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_4" stretch="0,0,0,0,0">
+      <layout class="QVBoxLayout" name="verticalLayout_4" stretch="0,0,0">
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_8" stretch="10,1">
+        <layout class="QVBoxLayout" name="verticalLayout">
          <item>
-          <widget class="QLabel" name="noise_salt_label">
-           <property name="font">
-            <font>
-             <family>Pretendard</family>
-             <pointsize>9</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
-           </property>
-           <property name="text">
-            <string>Salt&amp;Pepper</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QRadioButton" name="noise_salt_btn">
-           <property name="styleSheet">
-            <string notr="true">QRadioButton::indicator {
+          <layout class="QHBoxLayout" name="horizontalLayout_8" stretch="10,1">
+           <item>
+            <widget class="QLabel" name="noise_salt_label">
+             <property name="font">
+              <font>
+               <family>Pretendard</family>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+             </property>
+             <property name="text">
+              <string>Salt&amp;Pepper</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="noise_salt_btn">
+             <property name="styleSheet">
+              <string notr="true">QRadioButton::indicator {
     width: 35px;
 	height: 18px;
 	image: url(&quot;C:/Users/User/workspace/2023-Industry-Academia-Collaboration-Project/ShortTerm-Internship/project/opencv_on_pyqt/Checkbox_off.png&quot;);
@@ -263,26 +271,80 @@ QRadioButton::indicator::unchecked {
 QRadioButton {
 	background-color: rgba(0,0,0,0);
 }</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="checked">
-            <bool>false</bool>
-           </property>
-          </widget>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout" stretch="2,8">
+           <item>
+            <widget class="QLabel" name="noise_salt_value">
+             <property name="font">
+              <font>
+               <family>Pretendard</family>
+              </font>
+             </property>
+             <property name="text">
+              <string>0.01</string>
+             </property>
+             <property name="textFormat">
+              <enum>Qt::AutoText</enum>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="noise_salt_slider">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="minimum">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <number>50</number>
+             </property>
+             <property name="singleStep">
+              <number>1</number>
+             </property>
+             <property name="pageStep">
+              <number>0</number>
+             </property>
+             <property name="value">
+              <number>1</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="invertedAppearance">
+              <bool>false</bool>
+             </property>
+             <property name="invertedControls">
+              <bool>false</bool>
+             </property>
+             <property name="tickPosition">
+              <enum>QSlider::TicksBelow</enum>
+             </property>
+             <property name="tickInterval">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
         </layout>
-       </item>
-       <item>
-        <widget class="QSlider" name="horizontalSlider">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
        </item>
        <item>
         <widget class="Line" name="line_7">
@@ -292,32 +354,34 @@ QRadioButton {
         </widget>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_9" stretch="10,1">
+        <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
-          <widget class="QLabel" name="noise_gaus_label">
-           <property name="font">
-            <font>
-             <family>Pretendard</family>
-             <pointsize>9</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
-           </property>
-           <property name="text">
-            <string>Gaussian</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QRadioButton" name="noise_gaus_btn">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QRadioButton::indicator {
+          <layout class="QHBoxLayout" name="horizontalLayout_9" stretch="10,1">
+           <item>
+            <widget class="QLabel" name="noise_gaus_label">
+             <property name="font">
+              <font>
+               <family>Pretendard</family>
+               <pointsize>9</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+             </property>
+             <property name="text">
+              <string>Gaussian</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="noise_gaus_btn">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QRadioButton::indicator {
     width: 35px;
 	height: 18px;
 	image: url(&quot;C:/Users/User/workspace/2023-Industry-Academia-Collaboration-Project/ShortTerm-Internship/project/opencv_on_pyqt/Checkbox_off.png&quot;);
@@ -335,26 +399,77 @@ QRadioButton::indicator::unchecked {
 QRadioButton {
 	background-color: rgba(0,0,0,0);
 }</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="checked">
-            <bool>false</bool>
-           </property>
-          </widget>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="2,8">
+           <item>
+            <widget class="QLabel" name="noise_gaus_value">
+             <property name="font">
+              <font>
+               <family>Pretendard</family>
+              </font>
+             </property>
+             <property name="text">
+              <string>1</string>
+             </property>
+             <property name="textFormat">
+              <enum>Qt::AutoText</enum>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="noise_gaus_slider">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="minimum">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <number>50</number>
+             </property>
+             <property name="singleStep">
+              <number>1</number>
+             </property>
+             <property name="value">
+              <number>1</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="invertedAppearance">
+              <bool>false</bool>
+             </property>
+             <property name="invertedControls">
+              <bool>false</bool>
+             </property>
+             <property name="tickPosition">
+              <enum>QSlider::TicksBelow</enum>
+             </property>
+             <property name="tickInterval">
+              <number>5</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
         </layout>
-       </item>
-       <item>
-        <widget class="QSlider" name="horizontalSlider_2">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
        </item>
       </layout>
      </widget>
@@ -364,47 +479,70 @@ QRadioButton {
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>241</width>
-       <height>321</height>
+       <width>257</width>
+       <height>358</height>
       </rect>
      </property>
      <attribute name="label">
       <string>필터링</string>
      </attribute>
-     <widget class="QWidget" name="verticalLayoutWidget_2">
+     <widget class="QScrollArea" name="tool_filter_scrollArea">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>0</y>
-        <width>221</width>
-        <height>207</height>
+        <x>0</x>
+        <y>-10</y>
+        <width>261</width>
+        <height>361</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0,0,0,0,0,0,0,0,0,0,0">
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="10,1">
-         <item>
-          <widget class="QLabel" name="lpf_avg_label">
-           <property name="font">
-            <font>
-             <family>Pretendard</family>
-             <pointsize>9</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
-           </property>
-           <property name="text">
-            <string>Average</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QRadioButton" name="lpf_avg_btn">
-           <property name="styleSheet">
-            <string notr="true">QRadioButton::indicator {
+      <property name="styleSheet">
+       <string notr="true">QScrollArea {border: none;}</string>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAsNeeded</enum>
+      </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::AdjustIgnored</enum>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="tool_filter_groupBox">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>261</width>
+         <height>361</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <layout class="QVBoxLayout" name="tool_filter_layout" stretch="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="10,1">
+            <item>
+             <widget class="QLabel" name="lpf_avg_label">
+              <property name="font">
+               <font>
+                <family>Pretendard</family>
+                <pointsize>9</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+              </property>
+              <property name="text">
+               <string>Average</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="lpf_avg_btn">
+              <property name="styleSheet">
+               <string notr="true">QRadioButton::indicator {
     width: 35px;
 	height: 18px;
 	image: url(&quot;C:/Users/User/workspace/2023-Industry-Academia-Collaboration-Project/ShortTerm-Internship/project/opencv_on_pyqt/Checkbox_off.png&quot;);
@@ -417,54 +555,116 @@ QRadioButton::indicator::checked {
 QRadioButton {
 	background-color: rgba(0,0,0,0);
 }</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="checked">
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="Line" name="line_4">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="10,1">
-         <item>
-          <widget class="QLabel" name="lpf_med_label">
-           <property name="font">
-            <font>
-             <family>Pretendard</family>
-             <pointsize>9</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
-           </property>
-           <property name="text">
-            <string>Median</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QRadioButton" name="lpf_med_btn">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QRadioButton::indicator {
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="2,8">
+            <item>
+             <widget class="QLabel" name="lpf_avg_value">
+              <property name="font">
+               <font>
+                <family>Pretendard</family>
+               </font>
+              </property>
+              <property name="text">
+               <string>1x1</string>
+              </property>
+              <property name="textFormat">
+               <enum>Qt::AutoText</enum>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSlider" name="lpf_avg_slider">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="minimum">
+               <number>1</number>
+              </property>
+              <property name="maximum">
+               <number>21</number>
+              </property>
+              <property name="singleStep">
+               <number>2</number>
+              </property>
+              <property name="pageStep">
+               <number>2</number>
+              </property>
+              <property name="value">
+               <number>1</number>
+              </property>
+              <property name="sliderPosition">
+               <number>1</number>
+              </property>
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="invertedAppearance">
+               <bool>false</bool>
+              </property>
+              <property name="invertedControls">
+               <bool>false</bool>
+              </property>
+              <property name="tickPosition">
+               <enum>QSlider::TicksBelow</enum>
+              </property>
+              <property name="tickInterval">
+               <number>2</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="Line" name="line_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="10,1">
+            <item>
+             <widget class="QLabel" name="lpf_med_label">
+              <property name="font">
+               <font>
+                <family>Pretendard</family>
+                <pointsize>9</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+              </property>
+              <property name="text">
+               <string>Median</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="lpf_med_btn">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QRadioButton::indicator {
     width: 35px;
 	height: 18px;
 	image: url(&quot;C:/Users/User/workspace/2023-Industry-Academia-Collaboration-Project/ShortTerm-Internship/project/opencv_on_pyqt/Checkbox_off.png&quot;);
@@ -477,54 +677,113 @@ QRadioButton::indicator::checked {
 QRadioButton {
 	background-color: rgba(0,0,0,0);
 }</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="checked">
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="Line" name="line_3">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="10,1">
-         <item>
-          <widget class="QLabel" name="lpf_gaus_label">
-           <property name="font">
-            <font>
-             <family>Pretendard</family>
-             <pointsize>9</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
-           </property>
-           <property name="text">
-            <string>Gaussian</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QRadioButton" name="lpf_gaus_btn">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QRadioButton::indicator {
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="2,8">
+            <item>
+             <widget class="QLabel" name="lpf_med_value">
+              <property name="font">
+               <font>
+                <family>Pretendard</family>
+               </font>
+              </property>
+              <property name="text">
+               <string>3x3</string>
+              </property>
+              <property name="textFormat">
+               <enum>Qt::AutoText</enum>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSlider" name="lpf_med_slider">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="minimum">
+               <number>3</number>
+              </property>
+              <property name="maximum">
+               <number>21</number>
+              </property>
+              <property name="singleStep">
+               <number>2</number>
+              </property>
+              <property name="pageStep">
+               <number>2</number>
+              </property>
+              <property name="value">
+               <number>3</number>
+              </property>
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="invertedAppearance">
+               <bool>false</bool>
+              </property>
+              <property name="invertedControls">
+               <bool>false</bool>
+              </property>
+              <property name="tickPosition">
+               <enum>QSlider::TicksBelow</enum>
+              </property>
+              <property name="tickInterval">
+               <number>2</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="Line" name="line_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="10,1">
+            <item>
+             <widget class="QLabel" name="lpf_gaus_label">
+              <property name="font">
+               <font>
+                <family>Pretendard</family>
+                <pointsize>9</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+              </property>
+              <property name="text">
+               <string>Gaussian</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="lpf_gaus_btn">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QRadioButton::indicator {
     width: 35px;
 	height: 18px;
 	image: url(&quot;C:/Users/User/workspace/2023-Industry-Academia-Collaboration-Project/ShortTerm-Internship/project/opencv_on_pyqt/Checkbox_off.png&quot;);
@@ -537,54 +796,172 @@ QRadioButton::indicator::checked {
 QRadioButton {
 	background-color: rgba(0,0,0,0);
 }</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="checked">
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="Line" name="line_5">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_11" stretch="10,1">
-         <item>
-          <widget class="QLabel" name="hpf_sharp1_label">
-           <property name="font">
-            <font>
-             <family>Pretendard</family>
-             <pointsize>9</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
-           </property>
-           <property name="text">
-            <string>Sharpening</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QRadioButton" name="hpf_sharp1_btn">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QRadioButton::indicator {
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_15" stretch="2,8">
+            <item>
+             <widget class="QLabel" name="lpf_gaus_kvalue">
+              <property name="font">
+               <font>
+                <family>Pretendard</family>
+               </font>
+              </property>
+              <property name="text">
+               <string>1x1</string>
+              </property>
+              <property name="textFormat">
+               <enum>Qt::AutoText</enum>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSlider" name="lpf_gaus_kslider">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="minimum">
+               <number>1</number>
+              </property>
+              <property name="maximum">
+               <number>21</number>
+              </property>
+              <property name="singleStep">
+               <number>2</number>
+              </property>
+              <property name="pageStep">
+               <number>2</number>
+              </property>
+              <property name="value">
+               <number>1</number>
+              </property>
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="invertedAppearance">
+               <bool>false</bool>
+              </property>
+              <property name="invertedControls">
+               <bool>false</bool>
+              </property>
+              <property name="tickPosition">
+               <enum>QSlider::TicksBelow</enum>
+              </property>
+              <property name="tickInterval">
+               <number>2</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_25" stretch="2,8">
+            <item>
+             <widget class="QLabel" name="lpf_gaus_svalue">
+              <property name="font">
+               <font>
+                <family>Pretendard</family>
+               </font>
+              </property>
+              <property name="text">
+               <string>sig=1</string>
+              </property>
+              <property name="textFormat">
+               <enum>Qt::AutoText</enum>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSlider" name="lpf_gaus_sslider">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="minimum">
+               <number>1</number>
+              </property>
+              <property name="maximum">
+               <number>30</number>
+              </property>
+              <property name="singleStep">
+               <number>0</number>
+              </property>
+              <property name="pageStep">
+               <number>0</number>
+              </property>
+              <property name="value">
+               <number>1</number>
+              </property>
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="invertedAppearance">
+               <bool>false</bool>
+              </property>
+              <property name="invertedControls">
+               <bool>false</bool>
+              </property>
+              <property name="tickPosition">
+               <enum>QSlider::TicksBelow</enum>
+              </property>
+              <property name="tickInterval">
+               <number>1</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="Line" name="line_5">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_11" stretch="10,1">
+            <item>
+             <widget class="QLabel" name="hpf_sharp1_label">
+              <property name="font">
+               <font>
+                <family>Pretendard</family>
+                <pointsize>9</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+              </property>
+              <property name="text">
+               <string>Sharpening</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="hpf_sharp1_btn">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QRadioButton::indicator {
     width: 35px;
 	height: 18px;
 	image: url(&quot;C:/Users/User/workspace/2023-Industry-Academia-Collaboration-Project/ShortTerm-Internship/project/opencv_on_pyqt/Checkbox_off.png&quot;);
@@ -597,54 +974,54 @@ QRadioButton::indicator::checked {
 QRadioButton {
 	background-color: rgba(0,0,0,0);
 }</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="checked">
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="Line" name="line_6">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_12" stretch="10,1">
-         <item>
-          <widget class="QLabel" name="hpf_sharp2_label">
-           <property name="font">
-            <font>
-             <family>Pretendard</family>
-             <pointsize>9</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
-           </property>
-           <property name="text">
-            <string>Excessive-sharpening</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QRadioButton" name="hpf_sharp2_btn">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QRadioButton::indicator {
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="Line" name="line_6">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_12" stretch="10,1">
+            <item>
+             <widget class="QLabel" name="hpf_sharp2_label">
+              <property name="font">
+               <font>
+                <family>Pretendard</family>
+                <pointsize>9</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+              </property>
+              <property name="text">
+               <string>Excessive-sharpening</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="hpf_sharp2_btn">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QRadioButton::indicator {
     width: 35px;
 	height: 18px;
 	image: url(&quot;C:/Users/User/workspace/2023-Industry-Academia-Collaboration-Project/ShortTerm-Internship/project/opencv_on_pyqt/Checkbox_off.png&quot;);
@@ -657,54 +1034,54 @@ QRadioButton::indicator::checked {
 QRadioButton {
 	background-color: rgba(0,0,0,0);
 }</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="checked">
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="Line" name="line_8">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_13" stretch="10,1">
-         <item>
-          <widget class="QLabel" name="hpf_sharp3_label">
-           <property name="font">
-            <font>
-             <family>Pretendard</family>
-             <pointsize>9</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
-           </property>
-           <property name="text">
-            <string>edege-enhancement</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QRadioButton" name="hpf_sharp3_btn">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QRadioButton::indicator {
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="Line" name="line_8">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_13" stretch="10,1">
+            <item>
+             <widget class="QLabel" name="hpf_sharp3_label">
+              <property name="font">
+               <font>
+                <family>Pretendard</family>
+                <pointsize>9</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+              </property>
+              <property name="text">
+               <string>edege-enhancement</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="hpf_sharp3_btn">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QRadioButton::indicator {
     width: 35px;
 	height: 18px;
 	image: url(&quot;C:/Users/User/workspace/2023-Industry-Academia-Collaboration-Project/ShortTerm-Internship/project/opencv_on_pyqt/Checkbox_off.png&quot;);
@@ -717,21 +1094,24 @@ QRadioButton::indicator::checked {
 QRadioButton {
 	background-color: rgba(0,0,0,0);
 }</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="checked">
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="tool_edge">
@@ -739,8 +1119,8 @@ QRadioButton {
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>241</width>
-       <height>321</height>
+       <width>257</width>
+       <height>358</height>
       </rect>
      </property>
      <attribute name="label">
@@ -751,8 +1131,8 @@ QRadioButton {
        <rect>
         <x>10</x>
         <y>0</y>
-        <width>221</width>
-        <height>207</height>
+        <width>241</width>
+        <height>252</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_5" stretch="0,0,0,0,0,0,0,0,0,0,0">
@@ -1109,32 +1489,24 @@ QRadioButton {
       </layout>
      </widget>
     </widget>
-    <widget class="QWidget" name="tool_rotate">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>241</width>
-       <height>321</height>
-      </rect>
-     </property>
+    <widget class="QWidget" name="page_2">
      <attribute name="label">
-      <string>회전 및 반전</string>
+      <string>이진화</string>
      </attribute>
-     <widget class="QWidget" name="verticalLayoutWidget_5">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>10</x>
         <y>0</y>
-        <width>221</width>
-        <height>101</height>
+        <width>241</width>
+        <height>291</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_6" stretch="0,0,0,0,0">
+      <layout class="QVBoxLayout" name="tool_filter_layout_2" stretch="0,0,0,0,0,0,0,0,0,0,0">
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_21" stretch="10,1">
          <item>
-          <widget class="QLabel" name="label_20">
+          <widget class="QLabel" name="lpf_avg_label_2">
            <property name="font">
             <font>
              <family>Pretendard</family>
@@ -1147,12 +1519,12 @@ QRadioButton {
             <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
            </property>
            <property name="text">
-            <string>좌우 반전</string>
+            <string>Global Thresholding</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QRadioButton" name="radioButton_22">
+          <widget class="QRadioButton" name="lpf_avg_btn_2">
            <property name="styleSheet">
             <string notr="true">QRadioButton::indicator {
     width: 35px;
@@ -1182,16 +1554,16 @@ QRadioButton {
         </layout>
        </item>
        <item>
-        <widget class="Line" name="line_15">
+        <widget class="Line" name="line_9">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
         </widget>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_22" stretch="10,1">
+        <layout class="QHBoxLayout" name="horizontalLayout_23" stretch="10,1">
          <item>
-          <widget class="QLabel" name="label_21">
+          <widget class="QLabel" name="lpf_med_label_2">
            <property name="font">
             <font>
              <family>Pretendard</family>
@@ -1204,12 +1576,12 @@ QRadioButton {
             <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
            </property>
            <property name="text">
-            <string>상하 반전</string>
+            <string>Apative Thresholding (mean)</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QRadioButton" name="radioButton_23">
+          <widget class="QRadioButton" name="lpf_med_btn_2">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -1242,16 +1614,134 @@ QRadioButton {
         </layout>
        </item>
        <item>
-        <widget class="Line" name="line_16">
+        <layout class="QHBoxLayout" name="horizontalLayout_22" stretch="2,8">
+         <item>
+          <widget class="QLabel" name="lpf_gaus_kvalue_2">
+           <property name="font">
+            <font>
+             <family>Pretendard</family>
+            </font>
+           </property>
+           <property name="text">
+            <string>b</string>
+           </property>
+           <property name="textFormat">
+            <enum>Qt::AutoText</enum>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSlider" name="lpf_gaus_kslider_2">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>21</number>
+           </property>
+           <property name="singleStep">
+            <number>2</number>
+           </property>
+           <property name="pageStep">
+            <number>2</number>
+           </property>
+           <property name="value">
+            <number>1</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="invertedAppearance">
+            <bool>false</bool>
+           </property>
+           <property name="invertedControls">
+            <bool>false</bool>
+           </property>
+           <property name="tickPosition">
+            <enum>QSlider::TicksBelow</enum>
+           </property>
+           <property name="tickInterval">
+            <number>2</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_26" stretch="2,8">
+         <item>
+          <widget class="QLabel" name="lpf_gaus_kvalue_3">
+           <property name="font">
+            <font>
+             <family>Pretendard</family>
+            </font>
+           </property>
+           <property name="text">
+            <string>c</string>
+           </property>
+           <property name="textFormat">
+            <enum>Qt::AutoText</enum>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSlider" name="lpf_gaus_kslider_3">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>21</number>
+           </property>
+           <property name="singleStep">
+            <number>2</number>
+           </property>
+           <property name="pageStep">
+            <number>2</number>
+           </property>
+           <property name="value">
+            <number>1</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="invertedAppearance">
+            <bool>false</bool>
+           </property>
+           <property name="invertedControls">
+            <bool>false</bool>
+           </property>
+           <property name="tickPosition">
+            <enum>QSlider::TicksBelow</enum>
+           </property>
+           <property name="tickInterval">
+            <number>2</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="Line" name="line_10">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
         </widget>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_23" stretch="10,1">
+        <layout class="QHBoxLayout" name="horizontalLayout_27" stretch="10,1">
          <item>
-          <widget class="QLabel" name="label_22">
+          <widget class="QLabel" name="lpf_gaus_label_2">
            <property name="font">
             <font>
              <family>Pretendard</family>
@@ -1264,12 +1754,190 @@ QRadioButton {
             <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
            </property>
            <property name="text">
-            <string>시계방향 회전</string>
+            <string>Apative Thresholding (gaussian)</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QRadioButton" name="radioButton_24">
+          <widget class="QRadioButton" name="lpf_gaus_btn_2">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QRadioButton::indicator {
+    width: 35px;
+	height: 18px;
+	image: url(&quot;C:/Users/User/workspace/2023-Industry-Academia-Collaboration-Project/ShortTerm-Internship/project/opencv_on_pyqt/Checkbox_off.png&quot;);
+}
+QRadioButton::indicator::checked {
+	width: 35px;
+	height: 18px;
+    image: url(&quot;C:/Users/User/workspace/2023-Industry-Academia-Collaboration-Project/ShortTerm-Internship/project/opencv_on_pyqt/Checkbox_on.png&quot;);
+}
+QRadioButton {
+	background-color: rgba(0,0,0,0);
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="checked">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_32" stretch="2,8">
+         <item>
+          <widget class="QLabel" name="lpf_gaus_kvalue_4">
+           <property name="font">
+            <font>
+             <family>Pretendard</family>
+            </font>
+           </property>
+           <property name="text">
+            <string>b</string>
+           </property>
+           <property name="textFormat">
+            <enum>Qt::AutoText</enum>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSlider" name="lpf_gaus_kslider_4">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>21</number>
+           </property>
+           <property name="singleStep">
+            <number>2</number>
+           </property>
+           <property name="pageStep">
+            <number>2</number>
+           </property>
+           <property name="value">
+            <number>1</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="invertedAppearance">
+            <bool>false</bool>
+           </property>
+           <property name="invertedControls">
+            <bool>false</bool>
+           </property>
+           <property name="tickPosition">
+            <enum>QSlider::TicksBelow</enum>
+           </property>
+           <property name="tickInterval">
+            <number>2</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_33" stretch="2,8">
+         <item>
+          <widget class="QLabel" name="lpf_gaus_kvalue_5">
+           <property name="font">
+            <font>
+             <family>Pretendard</family>
+            </font>
+           </property>
+           <property name="text">
+            <string>c</string>
+           </property>
+           <property name="textFormat">
+            <enum>Qt::AutoText</enum>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSlider" name="lpf_gaus_kslider_5">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>21</number>
+           </property>
+           <property name="singleStep">
+            <number>2</number>
+           </property>
+           <property name="pageStep">
+            <number>2</number>
+           </property>
+           <property name="value">
+            <number>1</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="invertedAppearance">
+            <bool>false</bool>
+           </property>
+           <property name="invertedControls">
+            <bool>false</bool>
+           </property>
+           <property name="tickPosition">
+            <enum>QSlider::TicksBelow</enum>
+           </property>
+           <property name="tickInterval">
+            <number>2</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="Line" name="line_15">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_31" stretch="10,1">
+         <item>
+          <widget class="QLabel" name="lpf_gaus_label_6">
+           <property name="font">
+            <font>
+             <family>Pretendard</family>
+             <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+           </property>
+           <property name="text">
+            <string>OTSU Binarization</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="lpf_gaus_btn_6">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -1311,8 +1979,8 @@ QRadioButton {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>935</width>
-     <height>24</height>
+     <width>950</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="font">
@@ -1395,6 +2063,14 @@ QRadioButton {
     <font>
      <family>Pretendard</family>
     </font>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+W</string>
+   </property>
+  </action>
+  <action name="actionLoad_image">
+   <property name="text">
+    <string>Load image</string>
    </property>
   </action>
  </widget>
