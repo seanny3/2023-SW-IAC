@@ -8,6 +8,10 @@ from PyQt5 import uic
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
+import matplotlib.pyplot as plt
+
 from ultralytics import YOLO, RTDETR, NAS
 
 from futils import add_salt_and_pepper_noise, add_gaussian_noise, bg_removal
@@ -20,11 +24,62 @@ class WindowClass(QMainWindow, form_class) :
         super().__init__()
         self.setupUi(self)
         
-        # range slider 생성
+        # 히스토그램 캔버스
+        self.histogram_widget.setVisible(False)
+        
+        self.histogram_layout = QVBoxLayout(self.histogram_widget)
+        self.figure = plt.figure(figsize=(16,4))
+        plt.rcParams.update({
+            "figure.facecolor":  (0.0, 0.0, 0.0, 0),
+            "axes.facecolor":    (0.0, 0.0, 0.0, 0),
+            "text.color" : "red",
+            "axes.labelcolor" : "red",
+            "axes.edgecolor" : (0,0,0,0),
+            "xtick.color": "red",
+        })
+        
+        # plt.tick_params(axis='x', colors='red')
+        self.figure.patch.set_facecolor("None")
+        self.histogram_canvas = FigureCanvas(self.figure)
+        self.histogram_canvas.setStyleSheet("background-color: transparent;")
+        self.histogram_layout.addWidget(self.histogram_canvas)
+        self.histogram_view_btn.clicked.connect(self.histogram_widgetToggle)
+        
+        # Histogram Stretching 범위 지정 슬라이더 생성
+        self.hist_stretch_minVal = QLabel()
+        self.hist_stretch_minVal.setObjectName(u"hist_stretch_minVal")
+        self.hist_stretch_minVal.setText("0")
+        self.hist_stretch_maxVal = QLabel()
+        self.hist_stretch_maxVal.setObjectName(u"hist_stretch_maxVal")
+        self.hist_stretch_maxVal.setText("255")
+        
+        self.hist_stretch_slider = range_slider.RangeSlider(Qt.Horizontal)
+        self.hist_stretch_slider.setMinimumHeight(30)
+        self.hist_stretch_slider.setMinimum(0)
+        self.hist_stretch_slider.setMaximum(255)
+        self.hist_stretch_slider.setLow(0)
+        self.hist_stretch_slider.setHigh(255)
+        self.hist_stretch_slider.setTickPosition(QSlider.TicksBelow)
+        
+        self.hist_stretch_slider_layout = QHBoxLayout()
+        self.hist_stretch_slider_layout.setObjectName(u"hist_stretch_slider_layout")
+        self.hist_stretch_slider_layout.addWidget(self.hist_stretch_minVal)
+        self.hist_stretch_slider_layout.addWidget(self.hist_stretch_slider)
+        self.hist_stretch_slider_layout.addWidget(self.hist_stretch_maxVal)
+        self.hist_stretch_slider_layout.setStretch(0, 1)
+        self.hist_stretch_slider_layout.setStretch(1, 8)
+        self.hist_stretch_slider_layout.setStretch(2, 1)
+        
+        self.hist_stretch_slider.sliderMoved.connect(self.histStretch_sliderEvent)
+        self.hist_verticalLayout.insertLayout(1, self.hist_stretch_slider_layout)
+        
+        # Canny 범위 지정 슬라이더 생성
         self.edge_canny_minVal = QLabel()
         self.edge_canny_minVal.setObjectName(u"edge_canny_minVal")
+        self.edge_canny_minVal.setText("100")
         self.edge_canny_maxVal = QLabel()
         self.edge_canny_maxVal.setObjectName(u"edge_canny_maxVal")
+        self.edge_canny_maxVal.setText("200")
         
         self.edge_canny_slider = range_slider.RangeSlider(Qt.Horizontal)
         self.edge_canny_slider.setMinimumHeight(30)
@@ -44,7 +99,37 @@ class WindowClass(QMainWindow, form_class) :
         self.edge_canny_slider_layout.setStretch(2, 1)
         
         self.edge_canny_slider.sliderMoved.connect(self.edgeCanny_sliderEvent)
-        self.verticalLayout_5.insertLayout(7, self.edge_canny_slider_layout)
+        self.edge_verticalLayout.insertLayout(7, self.edge_canny_slider_layout)
+        
+        # 전역 스레시홀딩 범위 지정 슬라이더 생성
+        # range slider 생성
+        self.binary_global_minVal = QLabel()
+        self.binary_global_minVal.setObjectName(u"binary_global_minVal")
+        self.binary_global_minVal.setText("100")
+        self.binary_global_maxVal = QLabel()
+        self.binary_global_maxVal.setObjectName(u"binary_global_maxVal")
+        self.binary_global_maxVal.setText("255")
+        
+        self.binary_global_slider = range_slider.RangeSlider(Qt.Horizontal)
+        self.binary_global_slider.setMinimumHeight(30)
+        self.binary_global_slider.setMinimum(0)
+        self.binary_global_slider.setMaximum(255)
+        self.binary_global_slider.setLow(100)
+        self.binary_global_slider.setHigh(255)
+        self.binary_global_slider.setTickPosition(QSlider.TicksBelow)
+        
+        self.binary_global_slider_layout = QHBoxLayout()
+        self.binary_global_slider_layout.setObjectName(u"binary_global_slider_layout")
+        self.binary_global_slider_layout.addWidget(self.binary_global_minVal)
+        self.binary_global_slider_layout.addWidget(self.binary_global_slider)
+        self.binary_global_slider_layout.addWidget(self.binary_global_maxVal)
+        self.binary_global_slider_layout.setStretch(0, 1)
+        self.binary_global_slider_layout.setStretch(1, 8)
+        self.binary_global_slider_layout.setStretch(2, 1)
+        
+        self.binary_global_slider.sliderMoved.connect(self.binaryGlobal_sliderEvent)
+        self.binary_verticalLayout.insertLayout(1, self.binary_global_slider_layout)
+        
         
         # 색 변환 버튼 그룹
         self.cvt_group_btn = QButtonGroup()
@@ -67,21 +152,34 @@ class WindowClass(QMainWindow, form_class) :
         self.filter_group_btn.addButton(self.hpf_sharp2_btn)
         self.filter_group_btn.addButton(self.hpf_sharp3_btn)
         
-        # 에지검출 버튼 그룹
-        self.edge_group_btn = QButtonGroup()
-        self.edge_group_btn.setExclusive(False)
-        self.edge_group_btn.addButton(self.edge_sobel_btn)
-        self.edge_group_btn.addButton(self.edge_prewitt_btn)
-        self.edge_group_btn.addButton(self.edge_robert_btn)
-        self.edge_group_btn.addButton(self.edge_canny_btn)
-        self.edge_group_btn.addButton(self.edge_otsu_btn)
-        self.edge_group_btn.addButton(self.edge_laplacian_btn)
+        # 히스토그램
+        self.hist_group_btn = QButtonGroup()
+        self.hist_group_btn.setExclusive(False)
+        self.hist_group_btn.addButton(self.hist_stretch_btn)
+        self.hist_group_btn.addButton(self.hist_equal_btn)
+        
+        # 에지검출 버튼 그룹 + 이진화 버튼 그룹
+        self.edgeNbinary_group_btn = QButtonGroup()
+        self.edgeNbinary_group_btn.setExclusive(False)
+        self.edgeNbinary_group_btn.addButton(self.edge_sobel_btn)
+        self.edgeNbinary_group_btn.addButton(self.edge_prewitt_btn)
+        self.edgeNbinary_group_btn.addButton(self.edge_robert_btn)
+        self.edgeNbinary_group_btn.addButton(self.edge_canny_btn)
+        self.edgeNbinary_group_btn.addButton(self.edge_otsu_btn)
+        self.edgeNbinary_group_btn.addButton(self.edge_laplacian_btn)
+        
+        self.edgeNbinary_group_btn.addButton(self.binary_global_btn)
+        self.edgeNbinary_group_btn.addButton(self.binary_adaptive_btn1)
+        self.edgeNbinary_group_btn.addButton(self.binary_adaptive_btn2)
+        self.edgeNbinary_group_btn.addButton(self.binary_otsu_btn)
+        self.edgeNbinary_group_btn.addButton(self.binary_triangle_btn)
         
         # 그룹별 버튼 토글링
         self.cvt_group_btn.buttonClicked.connect(self.cvt_RadioBtnToggle)
         self.noise_group_btn.buttonClicked.connect(self.noise_RadioBtnToggle)
         self.filter_group_btn.buttonClicked.connect(self.filter_RadioBtnToggle)
-        self.edge_group_btn.buttonClicked.connect(self.edge_RadioBtnToggle)
+        self.edgeNbinary_group_btn.buttonClicked.connect(self.edgeNbinary_RadioBtnToggle)
+        self.hist_group_btn.buttonClicked.connect(self.hist_RadioBtnToggle)
         
         # menu bar events
         self.file_load_video.triggered.connect(self.loadVideo)
@@ -96,6 +194,10 @@ class WindowClass(QMainWindow, form_class) :
         self.lpf_med_slider.valueChanged.connect(self.lpfMed_sliderEvent)
         self.lpf_gaus_kslider.valueChanged.connect(self.lpfGaus_ksliderEvent)
         self.lpf_gaus_sslider.valueChanged.connect(self.lpfGaus_ssliderEvent)
+        self.binary_adaptive_bslider1.valueChanged.connect(self.binaryAdaptive_bslider1Event)
+        self.binary_adaptive_cslider1.valueChanged.connect(self.binaryAdaptive_cslider1Event)
+        self.binary_adaptive_bslider2.valueChanged.connect(self.binaryAdaptive_bslider2Event)
+        self.binary_adaptive_cslider2.valueChanged.connect(self.binaryAdaptive_cslider2Event)
         
         # current file info
         self.loaded_file_info = {"video": "", "model": ""}
@@ -110,23 +212,35 @@ class WindowClass(QMainWindow, form_class) :
         self.lpf_med_ksize = 3
         self.lpf_gaus_ksize = 1
         self.lpf_gaus_sig = 1
+        self.hist_stretch_minThreshold = 0
+        self.hist_stretch_maxThreshold = 255
         self.edge_canny_minThreshold = 100
         self.edge_canny_maxThreshold = 200
+        self.binary_global_minThreshold = 100
+        self.binary_global_maxThreshold = 255
+        self.binary_adaptive_mean_b = 3
+        self.binary_adaptive_mean_c = 1
+        self.binary_adaptive_gaus_b = 3
+        self.binary_adaptive_gaus_c = 1
+        
+        self.current_xval = 0
         
     def camRun(self):
         if self.loaded_file_info["model"]:
             # model = YOLO(self.loaded_file_info["model"])
-            # model = NAS(self.loaded_file_info["model"])
-            model = RTDETR(self.loaded_file_info["model"])
+            model = NAS(self.loaded_file_info["model"])
+            # model = RTDETR(self.loaded_file_info["model"])
         
         path = self.loaded_file_info["video"]
-        ext = path.split(".")[-1]
+        ext = 0
+        if path != 0:
+            ext = path.split(".")[-1]
         
         size = (640,480)
         
         isVideo = False
         
-        if ext in ["avi", "mp4", "mkv", "mov"]:
+        if ext in [0, "avi", "mp4", "mkv", "mov"]:
             cap = cv2.VideoCapture(self.loaded_file_info["video"])
             cap.set(cv2.CAP_PROP_FRAME_WIDTH, size[0])
             cap.set(cv2.CAP_PROP_FRAME_HEIGHT, size[1])
@@ -147,6 +261,7 @@ class WindowClass(QMainWindow, form_class) :
             if ret:
                 frame = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
                 
+                
                 h,w=frame.shape[:2]
                 ash=size[1]/h
                 asw=size[0]/w
@@ -156,16 +271,16 @@ class WindowClass(QMainWindow, form_class) :
                     sizeas=(int(w*ash),int(h*ash))
                 frame = cv2.resize(frame, dsize=sizeas)
                 
-                # cvt gray-scale
-                if self.cvt_gray_btn.isChecked():
-                    frame = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
-                
                 # make it noisy
                 if self.noise_salt_btn.isChecked():
                     frame = add_salt_and_pepper_noise(frame, self.noise_salt_param)
                 if self.noise_gaus_btn.isChecked():
                     frame = add_gaussian_noise(frame, self.noise_gaus_param)
                     
+                # cvt gray-scale
+                if self.cvt_gray_btn.isChecked():
+                    frame = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
+                
                 # filtering function
                 if self.lpf_avg_btn.isChecked():
                     frame = cv2.blur(frame, (self.lpf_avg_ksize,self.lpf_avg_ksize))
@@ -182,6 +297,28 @@ class WindowClass(QMainWindow, form_class) :
                 if self.hpf_sharp3_btn.isChecked():
                     kernel = np.array([[-1,-1,-1,-1,-1],[-1,2,2,2,-1],[-1,2,8,2,-1],[-1,2,2,2,-1],[-1,-1,-1,-1,-1]])/8.0
                     frame = cv2.filter2D(frame, -1, kernel)
+                
+                # histogram processing
+                if self.hist_stretch_btn.isChecked():
+                    if len(frame.shape) == 3:  # 이미지가 컬러 이미지인 경우
+                        frame = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
+                    frame = cv2.normalize(frame, None, self.hist_stretch_minThreshold, self.hist_stretch_maxThreshold, cv2.NORM_MINMAX)
+                if self.hist_equal_btn.isChecked():
+                    if len(frame.shape) == 3:  # 이미지가 컬러 이미지인 경우
+                        frame = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
+                    frame = cv2.equalizeHist(frame)
+                
+                
+                # show histogram
+                if self.histogram_view_btn.isChecked():
+                    self.figure.clear()
+                    
+                    hist = cv2.calcHist([frame],[0],None,[256],[0,256])
+                    plt.plot(hist, alpha=0.6)
+                    plt.yticks([])
+                    plt.axvline(self.current_xval, 0, 1, color='red', linestyle='-', linewidth=1)
+                    
+                    self.histogram_canvas.draw()
                 
                 # edge detection
                 if self.edge_sobel_btn.isChecked():     # sobel
@@ -223,6 +360,30 @@ class WindowClass(QMainWindow, form_class) :
                     if len(frame.shape) == 3:  # 이미지가 컬러 이미지인 경우
                         frame = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
                     frame = cv2.Laplacian(frame, -1)
+                
+                # Binarization
+                if self.binary_global_btn.isChecked():
+                    if len(frame.shape) == 3:
+                        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+                    _, frame = cv2.threshold(frame, self.binary_global_minThreshold, self.binary_global_maxThreshold, cv2.THRESH_BINARY)
+                if self.binary_adaptive_btn1.isChecked():
+                    if len(frame.shape) == 3:
+                        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+                    frame = cv2.adaptiveThreshold(frame, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, self.binary_adaptive_mean_b, self.binary_adaptive_mean_c)
+                if self.binary_adaptive_btn2.isChecked():
+                    if len(frame.shape) == 3:
+                        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+                    frame = cv2.adaptiveThreshold(frame, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, self.binary_adaptive_gaus_b, self.binary_adaptive_gaus_c)
+                if self.binary_otsu_btn.isChecked():
+                    if len(frame.shape) == 3:
+                        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+                    th, frame = cv2.threshold(frame, -1, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)                
+                    self.current_xval = th
+                if self.binary_triangle_btn.isChecked():
+                    if len(frame.shape) == 3:
+                        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+                    th, frame = cv2.threshold(frame, -1, 255, cv2.THRESH_BINARY | cv2.THRESH_TRIANGLE)                
+                    self.current_xval = th
                     
                 if self.loaded_file_info["model"]:
                     # OpenCV 이미지를 PIL 이미지로 변환
@@ -293,22 +454,32 @@ class WindowClass(QMainWindow, form_class) :
             event.ignore()
             
     def cvt_RadioBtnToggle(self, radioButton):
+        self.current_xval = 0
         for button in self.cvt_group_btn.buttons():
             if button is not radioButton:
                 button.setChecked(False)
            
     def noise_RadioBtnToggle(self, radioButton):
+        self.current_xval = 0
         for button in self.noise_group_btn.buttons():
             if button is not radioButton:
                 button.setChecked(False)
     
     def filter_RadioBtnToggle(self, radioButton):
+        self.current_xval = 0
         for button in self.filter_group_btn.buttons():
             if button is not radioButton:
                 button.setChecked(False)
                 
-    def edge_RadioBtnToggle(self, radioButton):
-        for button in self.edge_group_btn.buttons():
+    def edgeNbinary_RadioBtnToggle(self, radioButton):
+        self.current_xval = 0
+        for button in self.edgeNbinary_group_btn.buttons():
+            if button is not radioButton:
+                button.setChecked(False)
+                
+    def hist_RadioBtnToggle(self, radioButton):
+        self.current_xval = 0
+        for button in self.hist_group_btn.buttons():
             if button is not radioButton:
                 button.setChecked(False)
             
@@ -383,13 +554,49 @@ class WindowClass(QMainWindow, form_class) :
     def lpfGaus_ssliderEvent(self, value):
         self.lpf_gaus_svalue.setText(f"sig={value}")
         self.lpf_gaus_sig = int(value)
+    
+    def histStretch_sliderEvent(self, min, max):
+        self.hist_stretch_minVal.setText(str(min))
+        self.hist_stretch_maxVal.setText(str(max))
+        self.hist_stretch_minThreshold = min
+        self.hist_stretch_maxThreshold = max
         
     def edgeCanny_sliderEvent(self, min, max):
         self.edge_canny_minVal.setText(str(min))
         self.edge_canny_maxVal.setText(str(max))
         self.edge_canny_minThreshold = min
         self.edge_canny_maxThreshold = max
+        self.current_xval = min
+    
+    def binaryGlobal_sliderEvent(self, min, max):
+        self.binary_global_minVal.setText(str(min))
+        self.binary_global_maxVal.setText(str(max))
+        self.binary_global_minThreshold = min
+        self.binary_global_maxThreshold = max
+        self.current_xval = min
         
+    def binaryAdaptive_bslider1Event(self, value):
+        value -= (1 - value % 2)
+        self.binary_adaptive_bvalue1.setText(f"size={value}")
+        self.binary_adaptive_mean_b = int(value)
+    
+    def binaryAdaptive_cslider1Event(self, value):
+        self.binary_adaptive_cvalue1.setText(f"C={value}")
+        self.binary_adaptive_mean_c = int(value)
+        
+    def binaryAdaptive_bslider2Event(self, value):
+        value -= (1 - value % 2)
+        self.binary_adaptive_bvalue2.setText(f"size={value}")
+        self.binary_adaptive_gaus_b = int(value)
+    
+    def binaryAdaptive_cslider2Event(self, value):
+        self.binary_adaptive_cvalue2.setText(f"C={value}")
+        self.binary_adaptive_gaus_c = int(value)
+    
+    def histogram_widgetToggle(self):
+        # 위젯의 표시 여부를 토글
+        current_state = self.histogram_widget.isVisible()
+        self.histogram_widget.setVisible(not current_state)
         
 if __name__ == "__main__" :
     app = QApplication(sys.argv)

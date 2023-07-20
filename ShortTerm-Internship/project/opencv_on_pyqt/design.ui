@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>950</width>
-    <height>570</height>
+    <width>1000</width>
+    <height>702</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>950</width>
-    <height>570</height>
+    <width>1000</width>
+    <height>600</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>950</width>
-    <height>570</height>
+    <width>1000</width>
+    <height>1000</height>
    </size>
   </property>
   <property name="font">
@@ -44,8 +44,8 @@
    <widget class="QLabel" name="label_camView">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>30</y>
+      <x>340</x>
+      <y>40</y>
       <width>640</width>
       <height>480</height>
      </rect>
@@ -68,8 +68,8 @@
      <rect>
       <x>20</x>
       <y>20</y>
-      <width>257</width>
-      <height>498</height>
+      <width>311</width>
+      <height>551</height>
      </rect>
     </property>
     <property name="maximumSize">
@@ -97,15 +97,15 @@ QLine {background-color: black;}
 </string>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="page">
      <property name="geometry">
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>257</width>
-       <height>358</height>
+       <width>311</width>
+       <height>383</height>
       </rect>
      </property>
      <attribute name="label">
@@ -116,7 +116,7 @@ QLine {background-color: black;}
        <rect>
         <x>10</x>
         <y>0</y>
-        <width>241</width>
+        <width>291</width>
         <height>31</height>
        </rect>
       </property>
@@ -187,8 +187,8 @@ QRadioButton {
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>257</width>
-       <height>358</height>
+       <width>311</width>
+       <height>383</height>
       </rect>
      </property>
      <property name="minimumSize">
@@ -223,8 +223,8 @@ QRadioButton {
        <rect>
         <x>10</x>
         <y>0</y>
-        <width>241</width>
-        <height>141</height>
+        <width>291</width>
+        <height>143</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_4" stretch="0,0,0">
@@ -292,6 +292,7 @@ QRadioButton {
              <property name="font">
               <font>
                <family>Pretendard</family>
+               <pointsize>8</pointsize>
               </font>
              </property>
              <property name="text">
@@ -420,6 +421,7 @@ QRadioButton {
              <property name="font">
               <font>
                <family>Pretendard</family>
+               <pointsize>8</pointsize>
               </font>
              </property>
              <property name="text">
@@ -479,8 +481,8 @@ QRadioButton {
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>257</width>
-       <height>358</height>
+       <width>311</width>
+       <height>383</height>
       </rect>
      </property>
      <attribute name="label">
@@ -491,8 +493,8 @@ QRadioButton {
        <rect>
         <x>0</x>
         <y>-10</y>
-        <width>261</width>
-        <height>361</height>
+        <width>311</width>
+        <height>381</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -512,8 +514,8 @@ QRadioButton {
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>261</width>
-         <height>361</height>
+         <width>311</width>
+         <height>381</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -576,6 +578,7 @@ QRadioButton {
               <property name="font">
                <font>
                 <family>Pretendard</family>
+                <pointsize>8</pointsize>
                </font>
               </property>
               <property name="text">
@@ -698,6 +701,7 @@ QRadioButton {
               <property name="font">
                <font>
                 <family>Pretendard</family>
+                <pointsize>8</pointsize>
                </font>
               </property>
               <property name="text">
@@ -817,6 +821,7 @@ QRadioButton {
               <property name="font">
                <font>
                 <family>Pretendard</family>
+                <pointsize>8</pointsize>
                </font>
               </property>
               <property name="text">
@@ -876,6 +881,7 @@ QRadioButton {
               <property name="font">
                <font>
                 <family>Pretendard</family>
+                <pointsize>8</pointsize>
                </font>
               </property>
               <property name="text">
@@ -1114,13 +1120,147 @@ QRadioButton {
       </widget>
      </widget>
     </widget>
+    <widget class="QWidget" name="page_3">
+     <attribute name="label">
+      <string>히스토그램</string>
+     </attribute>
+     <widget class="QWidget" name="verticalLayoutWidget_7">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>291</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="hist_verticalLayout" stretch="0,0,0">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_28" stretch="10,1">
+         <item>
+          <widget class="QLabel" name="hist_stretch_label">
+           <property name="font">
+            <font>
+             <family>Pretendard</family>
+             <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+           </property>
+           <property name="text">
+            <string>Histogram stretching</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="hist_stretch_btn">
+           <property name="styleSheet">
+            <string notr="true">QRadioButton::indicator {
+    width: 35px;
+	height: 18px;
+	image: url(&quot;C:/Users/User/workspace/2023-Industry-Academia-Collaboration-Project/ShortTerm-Internship/project/opencv_on_pyqt/Checkbox_off.png&quot;);
+}
+QRadioButton::indicator::checked {
+	width: 35px;
+	height: 18px;
+    image: url(&quot;C:/Users/User/workspace/2023-Industry-Academia-Collaboration-Project/ShortTerm-Internship/project/opencv_on_pyqt/Checkbox_on.png&quot;);
+}
+QRadioButton::indicator::unchecked {
+	width: 35px;
+	height: 18px;
+    image: url(&quot;C:/Users/User/workspace/2023-Industry-Academia-Collaboration-Project/ShortTerm-Internship/project/opencv_on_pyqt/Checkbox_off.png&quot;);
+}
+QRadioButton {
+	background-color: rgba(0,0,0,0);
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="checked">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="Line" name="line_18">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_29" stretch="10,1">
+         <item>
+          <widget class="QLabel" name="hist_equal_label">
+           <property name="font">
+            <font>
+             <family>Pretendard</family>
+             <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+           </property>
+           <property name="text">
+            <string>Histogram equalization</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="hist_equal_btn">
+           <property name="styleSheet">
+            <string notr="true">QRadioButton::indicator {
+    width: 35px;
+	height: 18px;
+	image: url(&quot;C:/Users/User/workspace/2023-Industry-Academia-Collaboration-Project/ShortTerm-Internship/project/opencv_on_pyqt/Checkbox_off.png&quot;);
+}
+QRadioButton::indicator::checked {
+	width: 35px;
+	height: 18px;
+    image: url(&quot;C:/Users/User/workspace/2023-Industry-Academia-Collaboration-Project/ShortTerm-Internship/project/opencv_on_pyqt/Checkbox_on.png&quot;);
+}
+QRadioButton::indicator::unchecked {
+	width: 35px;
+	height: 18px;
+    image: url(&quot;C:/Users/User/workspace/2023-Industry-Academia-Collaboration-Project/ShortTerm-Internship/project/opencv_on_pyqt/Checkbox_off.png&quot;);
+}
+QRadioButton {
+	background-color: rgba(0,0,0,0);
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="checked">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
     <widget class="QWidget" name="tool_edge">
      <property name="geometry">
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>257</width>
-       <height>358</height>
+       <width>311</width>
+       <height>383</height>
       </rect>
      </property>
      <attribute name="label">
@@ -1131,11 +1271,11 @@ QRadioButton {
        <rect>
         <x>10</x>
         <y>0</y>
-        <width>241</width>
+        <width>291</width>
         <height>252</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_5" stretch="0,0,0,0,0,0,0,0,0,0,0">
+      <layout class="QVBoxLayout" name="edge_verticalLayout" stretch="0,0,0,0,0,0,0,0,0,0,0">
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_16" stretch="10,1">
          <item>
@@ -1490,6 +1630,14 @@ QRadioButton {
      </widget>
     </widget>
     <widget class="QWidget" name="page_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>311</width>
+       <height>383</height>
+      </rect>
+     </property>
      <attribute name="label">
       <string>이진화</string>
      </attribute>
@@ -1498,15 +1646,15 @@ QRadioButton {
        <rect>
         <x>10</x>
         <y>0</y>
-        <width>241</width>
-        <height>291</height>
+        <width>291</width>
+        <height>361</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="tool_filter_layout_2" stretch="0,0,0,0,0,0,0,0,0,0,0">
+      <layout class="QVBoxLayout" name="binary_verticalLayout" stretch="0,0,0,0,0,0,0,0,0,0,0,0,0">
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_21" stretch="10,1">
          <item>
-          <widget class="QLabel" name="lpf_avg_label_2">
+          <widget class="QLabel" name="binary_global_label">
            <property name="font">
             <font>
              <family>Pretendard</family>
@@ -1524,7 +1672,7 @@ QRadioButton {
           </widget>
          </item>
          <item>
-          <widget class="QRadioButton" name="lpf_avg_btn_2">
+          <widget class="QRadioButton" name="binary_global_btn">
            <property name="styleSheet">
             <string notr="true">QRadioButton::indicator {
     width: 35px;
@@ -1563,7 +1711,7 @@ QRadioButton {
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_23" stretch="10,1">
          <item>
-          <widget class="QLabel" name="lpf_med_label_2">
+          <widget class="QLabel" name="binary_adaptive_label1">
            <property name="font">
             <font>
              <family>Pretendard</family>
@@ -1581,7 +1729,7 @@ QRadioButton {
           </widget>
          </item>
          <item>
-          <widget class="QRadioButton" name="lpf_med_btn_2">
+          <widget class="QRadioButton" name="binary_adaptive_btn1">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -1616,14 +1764,15 @@ QRadioButton {
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_22" stretch="2,8">
          <item>
-          <widget class="QLabel" name="lpf_gaus_kvalue_2">
+          <widget class="QLabel" name="binary_adaptive_bvalue1">
            <property name="font">
             <font>
              <family>Pretendard</family>
+             <pointsize>8</pointsize>
             </font>
            </property>
            <property name="text">
-            <string>b</string>
+            <string>size=3</string>
            </property>
            <property name="textFormat">
             <enum>Qt::AutoText</enum>
@@ -1634,12 +1783,12 @@ QRadioButton {
           </widget>
          </item>
          <item>
-          <widget class="QSlider" name="lpf_gaus_kslider_2">
+          <widget class="QSlider" name="binary_adaptive_bslider1">
            <property name="enabled">
             <bool>true</bool>
            </property>
            <property name="minimum">
-            <number>1</number>
+            <number>3</number>
            </property>
            <property name="maximum">
             <number>21</number>
@@ -1651,7 +1800,7 @@ QRadioButton {
             <number>2</number>
            </property>
            <property name="value">
-            <number>1</number>
+            <number>3</number>
            </property>
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
@@ -1675,14 +1824,15 @@ QRadioButton {
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_26" stretch="2,8">
          <item>
-          <widget class="QLabel" name="lpf_gaus_kvalue_3">
+          <widget class="QLabel" name="binary_adaptive_cvalue1">
            <property name="font">
             <font>
              <family>Pretendard</family>
+             <pointsize>8</pointsize>
             </font>
            </property>
            <property name="text">
-            <string>c</string>
+            <string>C=1</string>
            </property>
            <property name="textFormat">
             <enum>Qt::AutoText</enum>
@@ -1693,7 +1843,7 @@ QRadioButton {
           </widget>
          </item>
          <item>
-          <widget class="QSlider" name="lpf_gaus_kslider_3">
+          <widget class="QSlider" name="binary_adaptive_cslider1">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -1701,13 +1851,13 @@ QRadioButton {
             <number>1</number>
            </property>
            <property name="maximum">
-            <number>21</number>
+            <number>20</number>
            </property>
            <property name="singleStep">
-            <number>2</number>
+            <number>1</number>
            </property>
            <property name="pageStep">
-            <number>2</number>
+            <number>1</number>
            </property>
            <property name="value">
             <number>1</number>
@@ -1725,7 +1875,7 @@ QRadioButton {
             <enum>QSlider::TicksBelow</enum>
            </property>
            <property name="tickInterval">
-            <number>2</number>
+            <number>1</number>
            </property>
           </widget>
          </item>
@@ -1741,7 +1891,7 @@ QRadioButton {
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_27" stretch="10,1">
          <item>
-          <widget class="QLabel" name="lpf_gaus_label_2">
+          <widget class="QLabel" name="binary_adaptive_label2">
            <property name="font">
             <font>
              <family>Pretendard</family>
@@ -1759,7 +1909,7 @@ QRadioButton {
           </widget>
          </item>
          <item>
-          <widget class="QRadioButton" name="lpf_gaus_btn_2">
+          <widget class="QRadioButton" name="binary_adaptive_btn2">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -1794,14 +1944,15 @@ QRadioButton {
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_32" stretch="2,8">
          <item>
-          <widget class="QLabel" name="lpf_gaus_kvalue_4">
+          <widget class="QLabel" name="binary_adaptive_bvalue2">
            <property name="font">
             <font>
              <family>Pretendard</family>
+             <pointsize>8</pointsize>
             </font>
            </property>
            <property name="text">
-            <string>b</string>
+            <string>size=3</string>
            </property>
            <property name="textFormat">
             <enum>Qt::AutoText</enum>
@@ -1812,12 +1963,12 @@ QRadioButton {
           </widget>
          </item>
          <item>
-          <widget class="QSlider" name="lpf_gaus_kslider_4">
+          <widget class="QSlider" name="binary_adaptive_bslider2">
            <property name="enabled">
             <bool>true</bool>
            </property>
            <property name="minimum">
-            <number>1</number>
+            <number>3</number>
            </property>
            <property name="maximum">
             <number>21</number>
@@ -1829,7 +1980,7 @@ QRadioButton {
             <number>2</number>
            </property>
            <property name="value">
-            <number>1</number>
+            <number>3</number>
            </property>
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
@@ -1853,14 +2004,15 @@ QRadioButton {
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_33" stretch="2,8">
          <item>
-          <widget class="QLabel" name="lpf_gaus_kvalue_5">
+          <widget class="QLabel" name="binary_adaptive_cvalue2">
            <property name="font">
             <font>
              <family>Pretendard</family>
+             <pointsize>8</pointsize>
             </font>
            </property>
            <property name="text">
-            <string>c</string>
+            <string>C=1</string>
            </property>
            <property name="textFormat">
             <enum>Qt::AutoText</enum>
@@ -1871,7 +2023,7 @@ QRadioButton {
           </widget>
          </item>
          <item>
-          <widget class="QSlider" name="lpf_gaus_kslider_5">
+          <widget class="QSlider" name="binary_adaptive_cslider2">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -1879,13 +2031,13 @@ QRadioButton {
             <number>1</number>
            </property>
            <property name="maximum">
-            <number>21</number>
+            <number>20</number>
            </property>
            <property name="singleStep">
-            <number>2</number>
+            <number>1</number>
            </property>
            <property name="pageStep">
-            <number>2</number>
+            <number>1</number>
            </property>
            <property name="value">
             <number>1</number>
@@ -1903,7 +2055,7 @@ QRadioButton {
             <enum>QSlider::TicksBelow</enum>
            </property>
            <property name="tickInterval">
-            <number>2</number>
+            <number>1</number>
            </property>
           </widget>
          </item>
@@ -1919,7 +2071,7 @@ QRadioButton {
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_31" stretch="10,1">
          <item>
-          <widget class="QLabel" name="lpf_gaus_label_6">
+          <widget class="QLabel" name="binary_otsu_label">
            <property name="font">
             <font>
              <family>Pretendard</family>
@@ -1937,7 +2089,67 @@ QRadioButton {
           </widget>
          </item>
          <item>
-          <widget class="QRadioButton" name="lpf_gaus_btn_6">
+          <widget class="QRadioButton" name="binary_otsu_btn">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QRadioButton::indicator {
+    width: 35px;
+	height: 18px;
+	image: url(&quot;C:/Users/User/workspace/2023-Industry-Academia-Collaboration-Project/ShortTerm-Internship/project/opencv_on_pyqt/Checkbox_off.png&quot;);
+}
+QRadioButton::indicator::checked {
+	width: 35px;
+	height: 18px;
+    image: url(&quot;C:/Users/User/workspace/2023-Industry-Academia-Collaboration-Project/ShortTerm-Internship/project/opencv_on_pyqt/Checkbox_on.png&quot;);
+}
+QRadioButton {
+	background-color: rgba(0,0,0,0);
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="checked">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="Line" name="line_16">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_36" stretch="10,1">
+         <item>
+          <widget class="QLabel" name="binary_triangle_label">
+           <property name="font">
+            <font>
+             <family>Pretendard</family>
+             <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+           </property>
+           <property name="text">
+            <string>Triangle Binarization</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="binary_triangle_btn">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -1973,13 +2185,90 @@ QRadioButton {
      </widget>
     </widget>
    </widget>
+   <widget class="QWidget" name="histogram_widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>40</y>
+      <width>641</width>
+      <height>481</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>10</y>
+      <width>161</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_30" stretch="10,1">
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="histogram_view_label">
+       <property name="font">
+        <font>
+         <family>Pretendard</family>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgba(255, 255, 255, 0)</string>
+       </property>
+       <property name="text">
+        <string>View Histogram</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="histogram_view_btn">
+       <property name="styleSheet">
+        <string notr="true">QRadioButton::indicator {
+    width: 35px;
+	height: 18px;
+	image: url(&quot;C:/Users/User/workspace/2023-Industry-Academia-Collaboration-Project/ShortTerm-Internship/project/opencv_on_pyqt/Checkbox_off.png&quot;);
+}
+QRadioButton::indicator::checked {
+	width: 35px;
+	height: 18px;
+    image: url(&quot;C:/Users/User/workspace/2023-Industry-Academia-Collaboration-Project/ShortTerm-Internship/project/opencv_on_pyqt/Checkbox_on.png&quot;);
+}
+QRadioButton {
+	background-color: rgba(0,0,0,0);
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>950</width>
+     <width>1000</width>
      <height>20</height>
     </rect>
    </property>
