@@ -97,6 +97,12 @@
 
 </div>
 
+### 🛠️ 프로젝트
+- [OpenCV on Flask](./ShortTerm-Internship/project/opencv_on_web/README.md)
+- [OpenCV on PyQt5](./ShortTerm-Internship/project/opencv_on_pyqt/README.md)
+- [Deep Learning Manual](./ShortTerm-Internship/project/manual/README.md)
+
+
 &emsp;
 
 ## 📊 산학협력 프로젝트 (변동가능)
