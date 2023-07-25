@@ -37,8 +37,6 @@ enter "your_IP:port" and connect.
 ### 📷 Applying the model
 
 <p align="center">
-  <img src="./img/upload.png" align="center" width="80%">
-</p>
-<p align="center">
-  <img src="./img/yolo.png" align="center" width="80%">
+  <img src="./img/upload.png" align="center" width="50%">
+  <img src="./img/yolo.png" align="center" width="40%">
 </p>
