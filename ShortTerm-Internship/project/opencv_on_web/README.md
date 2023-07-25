@@ -40,3 +40,9 @@ enter "your_IP:port" and connect.
   <img src="./img/upload.png" align="center" width="50%">
   <img src="./img/yolo.png" align="center" width="40%">
 </p>
+
+### ⚠️ Problem & Solution
+- 실시간 데이터 전송으로 인한 FPS 감소 현상.
+- 기능을 추가할 때마다 번거로운 UI 구현과 REST API 구현.
+- 웹 구현 대신 PyQt5로 구현함으로써 디자인 설계와 기능 구현을 보다 쉽게 처리할 수 있다.
+- [다음 프로젝트](../opencv_on_pyqt/README.md)
