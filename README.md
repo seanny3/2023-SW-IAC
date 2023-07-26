@@ -89,7 +89,7 @@
 |1주차|07.03 ~ 07.07|**[1일차](./ShortTerm-Internship/diary/0703.md)**, **[2일차](./ShortTerm-Internship/diary/0704.md)**, **[3일차](./ShortTerm-Internship/diary/0705.md)**, **[4일차](./ShortTerm-Internship/diary/0706.md)**, **[5일차](./ShortTerm-Internship/diary/0707.md)**|**[1주차 보고서](./ShortTerm-Internship/ShortTerm-Internship/report/week1_weekly-report.pdf)**|
 |2주차|07.10 ~ 07.14|**[6일차](./ShortTerm-Internship/diary/0710.md)**, **[7일차](./ShortTerm-Internship/diary/0711.md)**, **[8일차](./ShortTerm-Internship/diary/0712.md)**, **[9일차](./ShortTerm-Internship/diary/0713.md)**, **[10일차](./ShortTerm-Internship/diary/0714.md)**|**[2주차 보고서](./ShortTerm-Internship/report/week2_weekly-report.pdf)**|
 |3주차|07.17 ~ 07.21|**[11일차](./ShortTerm-Internship/diary/0717.md)**, **[12일차](./ShortTerm-Internship/diary/0718.md)**, **[13일차](./ShortTerm-Internship/diary/0719.md)**, **[14일차](./ShortTerm-Internship/diary/0720.md)**, **[15일차](./ShortTerm-Internship/diary/0721.md)**|**[3주차 보고서](./ShortTerm-Internship/report/3week_weekly-report.pdf)**|
-|4주차|07.24 ~ 07.28|**[16일차](./ShortTerm-Internship/diary/0724.md)**, **[17일차](./ShortTerm-Internship/diary/0725.md)**|
+|4주차|07.24 ~ 07.28|**[16일차](./ShortTerm-Internship/diary/0724.md)**, **[17일차](./ShortTerm-Internship/diary/0725.md)**, **[18일차](./ShortTerm-Internship/diary/0726.md)**|
 |5주차|07.31 ~ 08.04||
 |6주차|08.07 ~ 08.11||
 |7주차|08.14 ~ 08.18||
