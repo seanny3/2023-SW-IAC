@@ -1,7 +1,7 @@
 import sys
 import cv2, threading
 import numpy as np
-from PIL import Image
+from PIL import ImageFont, ImageDraw, Image
 from time import time
 
 from PyQt5 import uic
@@ -13,11 +13,24 @@ from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as Navigatio
 import matplotlib.pyplot as plt
 
 from ultralytics import YOLO, RTDETR, NAS
+from ultralytics.utils.plotting import Annotator
 
 from futils import add_salt_and_pepper_noise, add_gaussian_noise, bg_removal
 import range_slider
 
 form_class = uic.loadUiType("design.ui")[0]
+
+classes = ['0','1','2','3','4','5','6','7','8','9',
+           '가','나','다','라','마','바','사','아','자','거',
+           '너','더','러','머','버','서','어','저','고','노',
+           '도','로','모','보','소','오','조','구','누','두',
+           '루','무','부','수','우','주','배','하','허','호',
+           '국','합','육','해','공','울','산','대','인','천',
+           '전','광','제','경','기','강','원','충','남','북',
+           '외','교','영','준','협','정','표','세','종','전기차'
+           ]
+fontpath = "fonts/MALGUN.TTF"
+font = ImageFont.truetype(fontpath, 25)
 
 class WindowClass(QMainWindow, form_class) :
     def __init__(self) :
@@ -225,10 +238,12 @@ class WindowClass(QMainWindow, form_class) :
         
         self.current_xval = 0
         
+        self.car_number = ""
+        
     def camRun(self):
         if self.loaded_file_info["model"]:
-            # model = YOLO(self.loaded_file_info["model"])
-            model = NAS(self.loaded_file_info["model"])
+            model = YOLO(self.loaded_file_info["model"])
+            # model = NAS(self.loaded_file_info["model"])
             # model = RTDETR(self.loaded_file_info["model"])
         
         path = self.loaded_file_info["video"]
@@ -261,7 +276,6 @@ class WindowClass(QMainWindow, form_class) :
             if ret:
                 frame = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
                 
-                
                 h,w=frame.shape[:2]
                 ash=size[1]/h
                 asw=size[0]/w
@@ -269,7 +283,8 @@ class WindowClass(QMainWindow, form_class) :
                     sizeas=(int(w*asw),int(h*asw))
                 else:
                     sizeas=(int(w*ash),int(h*ash))
-                frame = cv2.resize(frame, dsize=sizeas)
+                    
+                frame = cv2.resize(frame, dsize=sizeas, interpolation=cv2.INTER_AREA if w > size[0] else cv2.INTER_LANCZOS4)
                 
                 # make it noisy
                 if self.noise_salt_btn.isChecked():
@@ -386,14 +401,36 @@ class WindowClass(QMainWindow, form_class) :
                     self.current_xval = th
                     
                 if self.loaded_file_info["model"]:
+                    # 객체 인식
+                    results = model.predict(frame)
+                    
+                    # 바운딩 박스                 
+                    for r in results:
+                        annotator = Annotator(frame)
+                        
+                        boxes = r.boxes
+                        for box in boxes:
+                            
+                            b = box.xyxy[0]
+                            c = box.cls
+                            annotator.box_label(b)
+                    
+                    frame = annotator.result()
+                    
+                    # 차량번호 정렬
+                    data = results[0].boxes.cpu().numpy().data
+                    sorted_data = data[data[:,0].argsort()]
+                    sorted_clsIdx = [int(row[5]) for row in sorted_data]
+                    
+                    # 차량번호 결과
+                    self.car_number = ''.join(classes[idx] for idx in sorted_clsIdx)
+                    
                     # OpenCV 이미지를 PIL 이미지로 변환
                     pil_image = Image.fromarray(frame)
-
-                    # 객체 인식
-                    results = model(pil_image)
-                    frame = results[0].plot()     # YOLOv8
+                    draw = ImageDraw.Draw(pil_image)
+                    draw.text((sorted_data[0][0], sorted_data[0][1]-40),  self.car_number, font=font, fill=(255,0,0))
                     
-                    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                    frame = np.array(pil_image)
                 
                 if len(frame.shape) < 3:
                     frame = cv2.cvtColor(frame, cv2.COLOR_GRAY2RGB)
@@ -416,7 +453,7 @@ class WindowClass(QMainWindow, form_class) :
                         fps = 1/(current_time - start_time)
                         start_time = current_time
                                 
-                    cv2.putText(frame, f"FPS: {fps:.3f}", (15, 35), cv2.FONT_HERSHEY_SIMPLEX, .8, (255, 0, 0), 1)       
+                    cv2.putText(frame, f"FPS: {fps:.3f}", (15, 35), cv2.FONT_HERSHEY_SIMPLEX, .8, (255, 0, 0), 1)   
                 
                 h,w,c = frame.shape
                 qImg = QImage(frame.data, w, h, w*c, QImage.Format_RGB888)
