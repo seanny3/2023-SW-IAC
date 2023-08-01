@@ -1,9 +1,24 @@
 # LPR system with [openVINO](https://docs.openvino.ai/2023.0/notebooks/230-yolov8-optimization-with-output.html)
-- openVINO는 intel에서 주도적으로 진행 주인 프로젝트이다.
+- openVINO는 intel에서 주도적으로 진행 중인 프로젝트이다.
 - 다양한 딥러닝 프레임워크의 모델들을 openVINO 모델로 변환하여 intel device에 최적화된 inference를 할 수 있도록 해준다.
 - Nvidia 제품을 사용하지 않는 PC 환경에서 openVINO를 사용하면 latency 성능이 좋아지는 이점이 있다.
 - 이 프로젝트는 실시간 영상에 대한 object detection만을 지원한다.
 - 이 프로젝트는 PyTorch 모델 (*.pt) 만을 지원한다.
+
+### 🚀 Speed
+- OpenVINO-CPU를 사용할 때, 사용하지 않았을 때보다 24.7% 정도 속도가 향상되었다.
+- OpenVINO-GPU를 사용할 때, 사용하지 않았을 때보다 66.2% 정도 속도가 향상되었다.
+- OpenVINO-GPU를 사용할 때, OpenVINO-CPU 보다 55.7% 정도 속도가 향상되었다.
+
+&nbsp;
+<div align="center">
+
+||Original CPU|OpenVINO CPU|OpenVINO GPU|
+|:---:|:---:|:---:|:---:|
+|**평균(ms)**|582ms|438ms|196ms|
+
+</div>
+&nbsp;
 
 ### 🛠️ YOLOv8 → ONNX → openVINO
 
