@@ -6,7 +6,7 @@ from time import time
 class LPRStream:
     def __init__(self, source, weights, device):
         self.lpr_net = LPRNet(weights, device)
-        self.cap = cv2.VideoCapture(source)
+        self.cap = cv2.VideoCapture(int(source) if source == "0" else source)
 
     def __del__(self):
         self.cap.release()
