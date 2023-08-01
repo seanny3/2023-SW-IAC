@@ -10,7 +10,6 @@
 - OpenVINO-GPU를 사용할 때, 사용하지 않았을 때보다 66.2% 정도 속도가 향상되었다.
 - OpenVINO-GPU를 사용할 때, OpenVINO-CPU 보다 55.7% 정도 속도가 향상되었다.
 
-&nbsp;
 <div align="center">
 
 ||Original CPU|OpenVINO CPU|OpenVINO GPU|

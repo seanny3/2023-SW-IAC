@@ -101,7 +101,7 @@
 - ✅ [OpenCV on Web](./ShortTerm-Internship/project/opencv_on_web/README.md)
 - ✅ [OpenCV on PyQt5](./ShortTerm-Internship/project/opencv_on_pyqt/README.md)
 - ❌ [Deep Learning Manual](./ShortTerm-Internship/project/manual/README.md)
-- ❌ [LPR](./ShortTerm-Internship/project/LPR/README.md)
+- ✅ [LPR](./ShortTerm-Internship/project/LPR/README.md)
 
 &emsp;
 
