@@ -42,7 +42,7 @@ class LPRNet:
             line_thickness (int, *optional*, 5): thickness for box drawing lines
         """
         # Plots one bounding box on image img
-        tl = line_thickness or round(0.002 * (img.shape[0] + img.shape[1]) / 2) + 1  # line/font thickness
+        tl = line_thickness or round(0.004 * (img.shape[0] + img.shape[1]) / 2) + 1  # line/font thickness
         color = color or [random.randint(0, 255) for _ in range(3)]
         c1, c2 = (int(box[0]), int(box[1])), (int(box[2]), int(box[3]))
         cv2.rectangle(img, c1, c2, color, thickness=tl, lineType=cv2.LINE_AA)

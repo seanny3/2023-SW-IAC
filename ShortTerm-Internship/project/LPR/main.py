@@ -12,8 +12,6 @@ class LPRStream:
         self.cap.release()
 
     def run(self):
-        fps = 0
-        start_time = time()
             
         if not self.cap.isOpened():
             print("웹캠을 열 수 없습니다.")
@@ -24,18 +22,23 @@ class LPRStream:
             if not ret:
                 print("프레임을 읽을 수 없습니다.")
                 break
-
+            
+            start_time = time()
+            
+            # object detection
             input = frame.copy()
             output = self.lpr_net.detect(input)[0]
             frame = self.lpr_net.draw_results(output, input)
             
-            current_time = time()
-            elapsed_time = current_time - start_time
-            print(f"{elapsed_time*1000:.2f}ms")
+            end_time = time()
+            
+            # inference speed, fps
+            speed = end_time - start_time    # speed (sec)
+            fps = int(1./speed)
+            print(f"inference: {speed*1000:.2f}ms, fps: {fps}")
             
             cv2.imshow("LPR", frame)
-
-            start_time = current_time
+            
             
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
