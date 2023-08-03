@@ -3,7 +3,7 @@
 - 다양한 딥러닝 프레임워크의 모델들을 openVINO 모델로 변환하여 intel device에 최적화된 inference를 할 수 있도록 해준다.
 - Nvidia 제품을 사용하지 않는 PC 환경에서 openVINO를 사용하면 latency 성능이 좋아지는 이점이 있다.
 - 이 프로젝트는 실시간 영상에 대한 object detection만을 지원한다.
-- 이 프로젝트는 PyTorch 모델 (*.pt) 만을 지원한다.
+- 이 프로젝트는 *.pt, *.onnx 만을 지원한다.
 
 ### 🚀 Speed
 - YOLOv8m 모델 구조를 사용하여 학습한 커스텀 가중치 파일
@@ -56,7 +56,7 @@ model = core.compile_model(ov_model, device)
 ```python
 lpr = LPRStream(
     source=opt.source,          # webcam is 0
-    weights=opt.weights,        # supports only PyTorch. (*.pt)
+    weights=opt.weights,        # supports only PyTorch. (*.pt or *.onnx)
     device=opt.device.upper()   # using openVINO
 )
 lpr.run()
