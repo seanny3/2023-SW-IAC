@@ -1,34 +1,41 @@
 import cv2, torch, random
 import numpy as np
+import yaml
 from PIL import Image
 from pathlib import Path
 from typing import Tuple, Dict
 from ultralytics import YOLO
 from ultralytics.utils import ops
 from ultralytics.utils.plotting import colors
-from openvino.runtime import Core, Model
+from openvino.runtime import Core
 
 class LPRNet:
-    def __init__(self, weights_dir, device):
-        weights_name_ex = weights_dir.split('/')[-1]
-        weights_name = weights_name_ex.split('.')[0]
-        
+    def __init__(self, opt):
+        file = Path(opt.weights)
         save_dir = Path('./weights')
-        yolo_model = YOLO(save_dir / f'{weights_name_ex}')
-        self.classes = yolo_model.model.names
         
-        openvino_path = save_dir / f'{weights_name}_openvino_model/{weights_name}.xml'
-        if not openvino_path.exists():
-            yolo_model.export(format="openvino", dynamic=True, half=False)
+        if file.suffix == '.pt' or file.suffix == '.pth':
+            openvino_path = save_dir / f"{file.stem}_openvino_model/{file.stem}.xml"    
+            pt_model = YOLO(opt.weights)
+            if not openvino_path.exists():
+                pt_model.export(format="openvino", dynamic=True, half=False) 
+        
+        elif file.suffix == '.onnx':
+            openvino_path = file    
         
         # OpenVINO    
         core = Core()
         openvino_model = core.read_model(openvino_path)
         
+        device = opt.device.upper()
         if device != "CPU":
-            openvino_model.reshape({0: [1, 3, 640, 640]})
+            openvino_model.reshape({0: [1, 3, 480, 640]})
             
         self.model = core.compile_model(openvino_model, device)
+        
+        with open(opt.data, 'r') as file:
+            yaml_content = yaml.safe_load(file)
+        self.classes = yaml_content["names"]
     
     def plot_one_box(self, box:np.ndarray, img:np.ndarray, color:Tuple[int, int, int] = None, mask:np.ndarray = None, label:str = None, line_thickness:int = 5):
         """
@@ -60,7 +67,7 @@ class LPRNet:
             
         return img
     
-    def letterbox(self, img: np.ndarray, new_shape:Tuple[int, int] = (640, 640), color:Tuple[int, int, int] = (114, 114, 114), auto:bool = False, scale_fill:bool = False, scaleup:bool = False, stride:int = 32):
+    def letterbox(self, img: np.ndarray, new_shape:Tuple[int, int] = (480, 640), color:Tuple[int, int, int] = (114, 114, 114), auto:bool = False, scale_fill:bool = False, scaleup:bool = False, stride:int = 32):
         """
         Resize image and padding for detection. Takes image as input,
         resizes image to fit into new shape with saving original aspect ratio and pads it to meet stride-multiple constraints
