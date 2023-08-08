@@ -98,11 +98,10 @@
 </div>
 
 ### 🛠️ 프로젝트
-- ✅ [OpenCV on Web](./ShortTerm-Internship/project/opencv_on_web/README.md)
+- ✅ [OpenCV on Flask](./ShortTerm-Internship/project/opencv_on_flask/README.md)
 - ✅ [OpenCV on PyQt5](./ShortTerm-Internship/project/opencv_on_pyqt/README.md)
-- ❌ [Deep Learning Manual](./ShortTerm-Internship/project/manual/README.md)
-- ✅ [차량 번호 인식 프로그램](./ShortTerm-Internship/project/LPR/README.md)
-- ❌ [운전자석 높이 추정 방법](./ShortTerm-Internship/project/estimate_driver_seat_height/README.md)
+- ✅ [Machine Learning Manual](./ShortTerm-Internship/project/ML_manual/README.md)
+- ❌ 운전자석 높이 추정
 
 &emsp;
 

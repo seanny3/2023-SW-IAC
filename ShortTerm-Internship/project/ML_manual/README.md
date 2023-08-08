@@ -14,13 +14,11 @@
 
 |순번|내용|진행상황|
 |:---:|:---|:---:|
-|1|[문제 정의](./list/1.md)|✅|
-|2|[데이터 수집](./list/2.md)|✅|
-|3|[데이터 전처리](./list/3.md)||
-|4|[데이터 분석 및 특성 추출](./list/4.md)||
-|5|[알고리즘 선택](./list/5.md)||
-|6|[라벨링 및 학습](./list/6.md)||
-|7|[모델 평가 및 하이퍼 파라미터 조정](./list/7.md)|✅|
-|8|[모델 배포 및 유지보수](./list/8.md)||
+|1|[데이터 수집](./list/data_collection.md)|✅|
+|2|[데이터 분석 및 특성 추출](./list/data_analysis.md)||
+|3|[라벨링 (labelImg)](./1_labeling/README.md)|✅|
+|4|[학습 (YOLOv8)](./2_train/README.md)|✅|
+|5|[모델 평가 및 하이퍼 파라미터 조정](./list/model_evaluation.md)|✅|
+|6|[모델 배포 (OpenVINO)](./3_detect/README.md)|✅|
 
 </div>
