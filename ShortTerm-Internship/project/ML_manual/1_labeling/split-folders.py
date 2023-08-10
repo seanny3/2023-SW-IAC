@@ -26,10 +26,10 @@ def split_folders(config):
     labels = list(filter(lambda item: item.name != 'classes.txt', labels))
 
     for src in tqdm(images, ncols = 80, desc="images move"):
-        shutil.move(src, dst=f"./split-folders/input/images")
+        shutil.copy(src, dst=f"./split-folders/input/images")
         
     for src in tqdm(labels, ncols = 80, desc="labels move"):
-        shutil.move(str(src), dst=f"./split-folders/input/labels")
+        shutil.copy(str(src), dst=f"./split-folders/input/labels")
 
     ratio = tuple(map(float, config["ratio"].split(',')))
     print(f"ratio: {ratio}")
@@ -91,9 +91,13 @@ def main(config):
     delete_folders('./split-folders')
     
 def argparser():
-    config = configparser.ConfigParser()
-    config.read('./config.ini')
-    return config['split-folders']
+    try:
+        config = configparser.ConfigParser()
+        config.read('./config.ini')
+        return config['split-folders']
+    
+    except:
+        print("config.ini를 찾을 수 없습니다.")
     
 if __name__ == "__main__":
     main(argparser())
