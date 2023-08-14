@@ -46,18 +46,23 @@ class ImageViewerApp(QMainWindow):
         
         if file_name:
             self.image_pixmap = QPixmap(file_name)
-            self.image_label.setPixmap(self.image_pixmap.scaled(self.image_label.size(), Qt.KeepAspectRatio, Qt.SmoothTransformation))
+            # self.image_label.setPixmap(self.image_pixmap.scaled(self.image_label.size(), Qt.KeepAspectRatio, Qt.SmoothTransformation))
+            desired_width = 2100
+            scaled_pixmap = self.image_pixmap.scaledToWidth(desired_width, Qt.SmoothTransformation)
+            self.image_label.setPixmap(scaled_pixmap)
             self.image_label.mousePressEvent = self.getMousePos
 
     def getMousePos(self, event):
         y = event.pos().y()
         self.step.append(y)
+        print(f"{len(self.step)}: y={y}")
         
-        if len(self.step):
+        if len(self.step) == 3:
             car_height = abs(self.step[0] - self.step[1])
             driver_height = abs(self.step[1] - self.step[2])
             result = (int(self.input_text.text())*driver_height)/car_height
             self.result_label.setText(f"result:{result}")
+            print(f"result:{result}")
             self.step = []
             
 
