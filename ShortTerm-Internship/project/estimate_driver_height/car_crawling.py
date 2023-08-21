@@ -1,13 +1,16 @@
 import ssl
 
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import urllib.request
+import subprocess
 
 import os, time, uuid, io
 import csv
@@ -15,7 +18,13 @@ from PIL import Image
 
 class ImageCrawling:  
     def __init__(self):
-        self.driver = webdriver.Chrome()
+        subprocess.Popen(r'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe --remote-debugging-port=9222 --user-data-dir="C:\\chromeCookie"')
+
+        option = Options()
+        option.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
+        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=option)
+        self.driver.maximize_window()
+        
         
     def page_down(self, pauseTime):
         # 스크롤 높이 가져오기
@@ -56,10 +65,11 @@ class ImageCrawling:
         for keyword in keyword_list:
             manufacturer = keyword.split('+')[0]
             modelName = keyword.split('+')[1]
+            print(f"\n---{manufacturer} {modelName}---")
 
-            saveDir = os.path.join(saveDir, manufacturer, modelName)
-            if not os.path.exists(saveDir):
-                os.makedirs(saveDir)
+            path = os.path.join(saveDir, f"{manufacturer}+{modelName}")
+            if not os.path.exists(path):
+                os.makedirs(path)
                 
             self.driver.get("https://www.google.co.kr/imghp?hl=ko&tab=wi&authuser=0&ogbl")
             elem = self.driver.find_element("name", "q")
@@ -72,33 +82,32 @@ class ImageCrawling:
             images = WebDriverWait(self.driver, 10).until(
                 EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".rg_i.Q4LuWd"))
             )
+            
+            count = 0
             for image in images:
                 try:
+                    if count >= 10:
+                        continue
+                    
                     image.click()
-                    time.sleep(0.5)
-                    imgUrl = self.driver.find_element(By.CSS_SELECTOR, '.r48jcc.pT0Scc.iPVvYb').get_attribute("src")
-                    opener = urllib.request.build_opener()
-                    opener.addheaders = [
-                        ('User-Agent',
-                        'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1941.0 Safari/537.36')
-                    ]
-                    urllib.request.install_opener(opener)
+                    time.sleep(1)
+                    imgUrl = self.driver.find_element(By.CSS_SELECTOR, 'img.r48jcc.pT0Scc.iPVvYb').get_attribute("src")
                     
                     # 이미지 크기 정보 가져오기
-                    image_response = urllib.request.urlopen(imgUrl)
+                    image_response = urllib.request.urlopen(imgUrl, timeout=3)
                     image = Image.open(io.BytesIO(image_response.read()))
                     image_width, _ = image.size
-                    
                     # 너비와 높이가 모두 overWidth 이상인 경우에만 저장
                     if image_width >= overWidth:
-                        print(f"download: {manufacturer}+{modelName}, size:({image_width}x__)")
+                        count += 1
+                        print(f"download({count}/10): {manufacturer}+{modelName}, size:({image_width}x__)")
                         urllib.request.urlretrieve(
                             imgUrl,
-                            os.path.join(saveDir, f"{manufacturer}+{modelName}_{int(time.time())}{uuid.uuid4().hex[:8]}.jpg")
+                            os.path.join(path, f"{manufacturer}+{modelName}_{int(time.time())}{uuid.uuid4().hex[:8]}.jpg")
                         )
                 except Exception as e:
                     # print('e : ', e)
-                    pass
+                    continue
 
         self.driver.close()
     
