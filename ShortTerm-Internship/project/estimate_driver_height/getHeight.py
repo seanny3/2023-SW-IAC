@@ -42,12 +42,12 @@ class ImageViewerApp(QMainWindow):
     def load_image(self):
         options = QFileDialog.Options()
         options |= QFileDialog.ReadOnly
-        file_name, _ = QFileDialog.getOpenFileName(self, '이미지 불러오기', '', 'Images (*.jpeg *.jpg *.bmp *.png *.jfif)', options=options)
+        file_name, _ = QFileDialog.getOpenFileName(self, '이미지 불러오기', '', 'Images (*.jpeg *.jpg *.bmp *.png *.jfif *webp *gif)', options=options)
         
         if file_name:
             self.image_pixmap = QPixmap(file_name)
             # self.image_label.setPixmap(self.image_pixmap.scaled(self.image_label.size(), Qt.KeepAspectRatio, Qt.SmoothTransformation))
-            desired_width = 2100
+            desired_width = 1080
             scaled_pixmap = self.image_pixmap.scaledToWidth(desired_width, Qt.SmoothTransformation)
             self.image_label.setPixmap(scaled_pixmap)
             self.image_label.mousePressEvent = self.getMousePos
