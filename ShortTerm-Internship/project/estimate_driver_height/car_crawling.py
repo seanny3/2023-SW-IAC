@@ -57,7 +57,7 @@ class ImageCrawling:
                     
         return keyword_list
         
-    def run(self, keywordDir, saveDir, overWidth=640):
+    def run(self, keywordDir, saveDir, delay, download_n, overWidth=640):
         if not os.path.exists(saveDir):
             os.makedirs(saveDir)
                     
@@ -70,6 +70,9 @@ class ImageCrawling:
             path = os.path.join(saveDir, f"{manufacturer}+{modelName}")
             if not os.path.exists(path):
                 os.makedirs(path)
+            else:
+                print("이미 존재한 데이터입니다. 다음으로 넘어갑니다.")
+                continue
                 
             self.driver.get("https://www.google.co.kr/imghp?hl=ko&tab=wi&authuser=0&ogbl")
             elem = self.driver.find_element("name", "q")
@@ -82,25 +85,25 @@ class ImageCrawling:
             images = WebDriverWait(self.driver, 10).until(
                 EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".rg_i.Q4LuWd"))
             )
-            
+            time.sleep(delay)
             count = 0
             for image in images:
                 try:
-                    if count >= 10:
+                    if count >= download_n:
                         continue
                     
                     image.click()
-                    time.sleep(1)
-                    imgUrl = self.driver.find_element(By.CSS_SELECTOR, 'img.r48jcc.pT0Scc.iPVvYb').get_attribute("src")
+                    time.sleep(delay)
+                    imgUrl = self.driver.find_element(By.CSS_SELECTOR, '#Sva75c > div.A8mJGd.NDuZHe > div.dFMRD > div.pxAole > div.tvh9oe.BIB1wf > c-wiz > div > div > div > div.n4hgof > div.MAtCL.PUxBg > a > img.r48jcc.pT0Scc.iPVvYb').get_attribute("src")
                     
                     # 이미지 크기 정보 가져오기
                     image_response = urllib.request.urlopen(imgUrl, timeout=3)
                     image = Image.open(io.BytesIO(image_response.read()))
                     image_width, _ = image.size
-                    # 너비와 높이가 모두 overWidth 이상인 경우에만 저장
+                    # 너비가 overWidth 이상인 경우에만 저장
                     if image_width >= overWidth:
                         count += 1
-                        print(f"download({count}/10): {manufacturer}+{modelName}, size:({image_width}x__)")
+                        print(f"download({count}/{download_n}): {manufacturer}+{modelName}, size:({image_width}x__)")
                         urllib.request.urlretrieve(
                             imgUrl,
                             os.path.join(path, f"{manufacturer}+{modelName}_{int(time.time())}{uuid.uuid4().hex[:8]}.jpg")
@@ -114,4 +117,4 @@ class ImageCrawling:
 if __name__ == "__main__":
     ssl._create_default_https_context = ssl._create_unverified_context
     crawling = ImageCrawling()
-    crawling.run(keywordDir="keywords.csv", saveDir="database", overWidth=640)
+    crawling.run(keywordDir="keywords.csv", saveDir="database", delay=3, download_n=200, overWidth=640)
