@@ -133,3 +133,4 @@ hyundai_the-new-kona-(OS)
 hyundai_kona-N-(OS)
 hyundai_kona-(SX2)
 hyundai_kona-(SX2)-electric
+hyundai_grandeur-TG
