@@ -19,10 +19,10 @@ def mkdir():
         os.makedirs('./split-folders/output')
 
 def split_folders(config):
-    images = glob(f'{config["target"]}/*jpg')
+    images = glob(f'{config["target"]}/*.jpg')
     
     # classes.txt 빼기
-    labels = list(map(Path, glob('./data/img/*txt')))
+    labels = list(map(Path, glob('./data/img/*.txt')))
     labels = list(filter(lambda item: item.name != 'classes.txt', labels))
 
     for src in tqdm(images, ncols = 80, desc="images move"):
