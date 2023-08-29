@@ -17,7 +17,7 @@ def rename(config):
     
     
 def main(config):
-    rename(config)
+    # rename(config)
     
     model = YOLO(config["weights"])
     img_list = glob(f"{config['target']}/*.jpg")
