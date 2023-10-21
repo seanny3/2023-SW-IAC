@@ -39,7 +39,7 @@
 - 학기 중에 프로젝트 팀을 구성하여 기업에서 제안한 SW개발 과제 프로젝트 공동 수행
 - **기획형 마스터과정**: 
     1. ✅ (03월~06월) 프로젝트 공동기획 및 기업 설명회
-    2. ❌ (07월~08월) 하계 단기 현장실습
+    2. ✅ (07월~08월) 하계 단기 현장실습
     3. ❌ (09월~12월) 산학협력 프로젝트(2학기)
 
 &emsp;
@@ -100,7 +100,7 @@
 ### 🛠️ 프로젝트
 - ✅ [OpenCV on Flask](./Internship/project/opencv_on_flask/README.md)
 - ✅ [OpenCV on PyQt5](./Internship/project/opencv_on_pyqt/README.md)
-- ✅ [Object Detection Manual](./Internship/project/object-detection-manual/README.md)
+- ✅ [Object Detection Manual](./Internship/project/object_detection_manual/README.md)
 
 &emsp;
 
