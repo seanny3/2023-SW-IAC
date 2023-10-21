@@ -86,22 +86,21 @@
 
 |주차|📅 날짜|📝 근무일지|📋 주간 보고서|
 |:---:|:---:|:---:|:---:|
-|1주차|07.03 ~ 07.07|**[1일차](./ShortTerm-Internship/diary/0703.md)**, **[2일차](./ShortTerm-Internship/diary/0704.md)**, **[3일차](./ShortTerm-Internship/diary/0705.md)**, **[4일차](./ShortTerm-Internship/diary/0706.md)**, **[5일차](./ShortTerm-Internship/diary/0707.md)**|**[1주차 보고서](./ShortTerm-Internship/ShortTerm-Internship/report/week1_weekly-report.pdf)**|
-|2주차|07.10 ~ 07.14|**[6일차](./ShortTerm-Internship/diary/0710.md)**, **[7일차](./ShortTerm-Internship/diary/0711.md)**, **[8일차](./ShortTerm-Internship/diary/0712.md)**, **[9일차](./ShortTerm-Internship/diary/0713.md)**, **[10일차](./ShortTerm-Internship/diary/0714.md)**|**[2주차 보고서](./ShortTerm-Internship/report/week2_weekly-report.pdf)**|
-|3주차|07.17 ~ 07.21|**[11일차](./ShortTerm-Internship/diary/0717.md)**, **[12일차](./ShortTerm-Internship/diary/0718.md)**, **[13일차](./ShortTerm-Internship/diary/0719.md)**, **[14일차](./ShortTerm-Internship/diary/0720.md)**, **[15일차](./ShortTerm-Internship/diary/0721.md)**|**[3주차 보고서](./ShortTerm-Internship/report/week3_weekly-report.pdf)**|
-|4주차|07.24 ~ 07.28|**[16일차](./ShortTerm-Internship/diary/0724.md)**, **[17일차](./ShortTerm-Internship/diary/0725.md)**, **[18일차](./ShortTerm-Internship/diary/0726.md)**, **[19일차](./ShortTerm-Internship/diary/0727.md)**, **[20일차](./ShortTerm-Internship/diary/0728.md)**|**[새 프로젝트](./ShortTerm-Internship/report/week4_weekly-report.pdf)**|
-|5주차|07.31 ~ 08.04|**[21일차](./ShortTerm-Internship/diary/0731.md)**, **[22일차](./ShortTerm-Internship/diary/0801.md)**, **[23일차](./ShortTerm-Internship/diary/0802.md)**, **[24일차](./ShortTerm-Internship/diary/0803.md)**, **[25일차](./ShortTerm-Internship/diary/0804.md)**|
-|6주차|08.07 ~ 08.11|**[26일차](./ShortTerm-Internship/diary/0807.md)**, **[27일차](./ShortTerm-Internship/diary/0808.md)**, **[28일차](./ShortTerm-Internship/diary/0809.md)**, **[29일차](./ShortTerm-Internship/diary/0810.md)**, **[30일차](./ShortTerm-Internship/diary/0811.md)**|
-|7주차|08.14 ~ 08.18|DIP 붐업 캠프|
-|8주차|08.21 ~ 08.25||
+|1주차|07.03 ~ 07.07|**[1일차](./Internship/diary/0703.md)**, **[2일차](./Internship/diary/0704.md)**, **[3일차](./Internship/diary/0705.md)**, **[4일차](./Internship/diary/0706.md)**, **[5일차](./Internship/diary/0707.md)**|**[1주차 보고서](./Internship/Internship/report/week1_weekly-report.pdf)**|
+|2주차|07.10 ~ 07.14|**[6일차](./Internship/diary/0710.md)**, **[7일차](./Internship/diary/0711.md)**, **[8일차](./Internship/diary/0712.md)**, **[9일차](./Internship/diary/0713.md)**, **[10일차](./Internship/diary/0714.md)**|**[2주차 보고서](./Internship/report/week2_weekly-report.pdf)**|
+|3주차|07.17 ~ 07.21|**[11일차](./Internship/diary/0717.md)**, **[12일차](./Internship/diary/0718.md)**, **[13일차](./Internship/diary/0719.md)**, **[14일차](./Internship/diary/0720.md)**, **[15일차](./Internship/diary/0721.md)**|**[3주차 보고서](./Internship/report/week3_weekly-report.pdf)**|
+|4주차|07.24 ~ 07.28|**[16일차](./Internship/diary/0724.md)**, **[17일차](./Internship/diary/0725.md)**, **[18일차](./Internship/diary/0726.md)**, **[19일차](./Internship/diary/0727.md)**, **[20일차](./Internship/diary/0728.md)**|**[새 프로젝트](./Internship/report/week4_weekly-report.pdf)**|
+|5주차|07.31 ~ 08.04|**[21일차](./Internship/diary/0731.md)**, **[22일차](./Internship/diary/0801.md)**, **[23일차](./Internship/diary/0802.md)**, **[24일차](./Internship/diary/0803.md)**, **[25일차](./Internship/diary/0804.md)**|-|
+|6주차|08.07 ~ 08.11|**[26일차](./Internship/diary/0807.md)**, **[27일차](./Internship/diary/0808.md)**, **[28일차](./Internship/diary/0809.md)**, **[29일차](./Internship/diary/0810.md)**, **[30일차](./Internship/diary/0811.md)**|-|
+|7주차|08.14 ~ 08.18|데이터분석 특강 및 DIP 붐업 캠프|-|
+|8주차|08.21 ~ 08.25|**[36~40일차: 최종보고서](./Internship/report/car-classification-report.pdf)**|-|
 
-</div>s
+</div>
 
 ### 🛠️ 프로젝트
-- ✅ [OpenCV on Flask](./ShortTerm-Internship/project/opencv_on_flask/README.md)
-- ✅ [OpenCV on PyQt5](./ShortTerm-Internship/project/opencv_on_pyqt/README.md)
-- ✅ [Machine Learning Manual](./ShortTerm-Internship/project/ML_manual/README.md)
-- ❌ 운전자석 높이 추정
+- ✅ [OpenCV on Flask](./Internship/project/opencv_on_flask/README.md)
+- ✅ [OpenCV on PyQt5](./Internship/project/opencv_on_pyqt/README.md)
+- ✅ [Object Detection Manual](./Internship/project/object-detection-manual/README.md)
 
 &emsp;
 

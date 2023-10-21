@@ -14,7 +14,7 @@
 
 |순번|내용|진행상황|
 |:---:|:---|:---:|
-|1|[데이터 수집](./list/data_collection.md)|✅|
+|1|[데이터 수집](./0_crawling/README.md)|✅|
 |2|[데이터 분석 및 특성 추출](./list/data_analysis.md)||
 |3|[라벨링 (labelImg)](./1_labeling/README.md)|✅|
 |4|[학습 (YOLOv8)](./2_train/README.md)|✅|
