@@ -17,7 +17,7 @@
 |1|[데이터 수집](./1_crawling/README.md)|✅|
 |2|[라벨링 (labelImg)](./2_labeling/README.md)|✅|
 |3|[학습 (YOLOv8)](./3_train/README.md)|✅|
-|4|[모델 평가 및 하이퍼 파라미터 조정](./4_eval/model_evaluation.md)|✅|
+|4|[모델 평가 및 하이퍼 파라미터 조정](./4_eval/README.md)|✅|
 |5|[모델 배포 (OpenVINO)](./5_detect/README.md)|✅|
 
 </div>
