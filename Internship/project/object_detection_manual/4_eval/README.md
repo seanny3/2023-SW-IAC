@@ -25,11 +25,11 @@
 - 이러한 경우 모델이 학습 데이터에 지나치게 적합하여 검증 데이터에 대한 성능이 저하되는 과적합 상태일 수 있다.
 
 <p align="center">
-  <img src="./img/7/7_loss1.png" align="center" width="60%">
+  <img src="../img/7/7_loss1.png" align="center" width="60%">
 </p>
 
 <p align="center">
-  <img src="./img/7/7_loss2.png" align="center" width="50%">
+  <img src="../img/7/7_loss2.png" align="center" width="50%">
 </p>
 
 - 손실 그래프를 보면 학습이 충분히 진행되어 최적의 성능에 도달한 시점을 파악할 수 있다.
@@ -38,8 +38,8 @@
 ### Loss curve & Learning rate
 
 <p align="center">
-  <img src="./img/7/7_loss3.png" align="center" width="42%">
-  <img src="./img/7/7_loss4.png" align="center" width="30%">
+  <img src="../img/7/7_loss3.png" align="center" width="42%">
+  <img src="../img/7/7_loss4.png" align="center" width="30%">
 </p>
 
 <div align="center">
@@ -55,8 +55,8 @@
 &nbsp; 
 
 <div align="center">
-  <img src="./img/7/7_loss5.png" align="center" width="50%">
-  <img src="./img/7/7_loss6.png" align="center" width="45%">
+  <img src="../img/7/7_loss5.png" align="center" width="50%">
+  <img src="../img/7/7_loss6.png" align="center" width="45%">
 </div>
 
 &nbsp;
@@ -111,17 +111,17 @@ results = model.train(
 ```
 
 <p align="center">
-  <img src="./img/7/7_loss7.png" align="center" width="90%">
+  <img src="../img/7/7_loss7.png" align="center" width="90%">
 </p>
 
 <p align="center">
-  <img src="./img/7/7_loss8.png" align="center" width="90%">
+  <img src="../img/7/7_loss8.png" align="center" width="90%">
 </p>
 
 ## 2. 평가 지표(Metric)
 
 <p align="center">
-  <img src="./img/7/7_metric1.png" align="center" width="80%">
+  <img src="../img/7/7_metric1.png" align="center" width="80%">
 </p>
 
 - 평가 지표는 어떤 모델을 평가 혹은 비교하기 위해 모델의 성능을 숫자로 표현하는 것을 말한다.
@@ -132,7 +132,7 @@ results = model.train(
 - 혼동 행렬은 분류 모델의 성능을 평가하는 데에 사용된다.
 
 <p align="center">
-  <img src="./img/7/7_metric2.png" align="center" width="50%">
+  <img src="../img/7/7_metric2.png" align="center" width="50%">
 </p>
 
 ### 2.2 정확도(Accuracy)
@@ -225,15 +225,15 @@ F1-score = 2 * ((Precision*Recall)/(Precision+Recall))
 - AUC(Area Under the Curve)는 ROC 곡선 아래 영역의 넓이이고, 1에 가까울 수록 좋다.
 
 <p align="center">
-  <img src="./img/7/7_metric3.png" align="center" width="60%">
+  <img src="../img/7/7_metric3.png" align="center" width="60%">
 </p>
 
 <p align="center">
-  <img src="./img/7/7_metric4.png" align="center" width="60%">
+  <img src="../img/7/7_metric4.png" align="center" width="60%">
 </p>
 
 <p align="center">
-  <img src="./img/7/7_metric5.png" align="center" width="50%">
+  <img src="../img/7/7_metric5.png" align="center" width="50%">
 </p>
 
 &nbsp;
@@ -254,13 +254,13 @@ mAP는 Object Detection 분야에서 모델의 성능을 평가하는 지표이�
 - IoU가 0.5 이상일 경우 일치하는 객체로 판단한다.
 
 <p align="center">
-  <img src="./img/7/7_metric6.png" align="center" width="35%">
+  <img src="../img/7/7_metric6.png" align="center" width="35%">
 </p>
 
 ### P1.2 Precision-Recall 곡선 그리기
 
 <p align="center">
-  <img src="./img/7/7_metric7.png" align="center" width="80%">
+  <img src="../img/7/7_metric7.png" align="center" width="80%">
 </p>
 
 - PR 곡선은 confidence 임계값에 따른 precision과 recall의 변화를 그래프로 표현한 것이다.
@@ -274,20 +274,20 @@ mAP는 Object Detection 분야에서 모델의 성능을 평가하는 지표이�
 - 각 클래스마다 한 AP를 갖게 되는데 모든 class의 AP에 대해 평균값을 낸 것이 mAP(mean Average Precision)이다.
 
 <p align="center">
-  <img src="./img/7/7_metric8.png" align="center" width="35%">
+  <img src="../img/7/7_metric8.png" align="center" width="35%">
 </p>
 
 ## 2. YOLO 알고리즘 성능에 대해
 
 <p align="center">
-  <img src="./img/7/7_metric9.png" align="center" width="80%">
+  <img src="../img/7/7_metric9.png" align="center" width="80%">
 </p>
 
 - YOLO에서 제공하는 잘 설계된 많은 모델이 있다.
     - 모델 구조 복잡도에 따라 n<s<m<l<x 순으로 나열할 수 있으며, 복잡할 수록 파라미터도 늘어나기 때문에 학습 시간도 늘어남을 인지해야 한다.
 
 <p align="center">
-  <img src="./img/7/7_metric10.png" align="center" width="55%">
+  <img src="../img/7/7_metric10.png" align="center" width="55%">
 </p>
 
 - mAP가 높을 수록 검출 성능은 좋겠지만 검출 속도도 느려지는 것을 볼 수 있다.
