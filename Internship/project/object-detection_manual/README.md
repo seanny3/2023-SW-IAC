@@ -15,10 +15,10 @@
 |순번|내용|진행상황|
 |:---:|:---|:---:|
 |1|[데이터 수집](./0_crawling/README.md)|✅|
-|2|[데이터 분석 및 특성 추출](./list/data_analysis.md)||
+|2|[데이터 분석 및 특성 추출](./manual/data_analysis.md)||
 |3|[라벨링 (labelImg)](./1_labeling/README.md)|✅|
 |4|[학습 (YOLOv8)](./2_train/README.md)|✅|
-|5|[모델 평가 및 하이퍼 파라미터 조정](./list/model_evaluation.md)|✅|
+|5|[모델 평가 및 하이퍼 파라미터 조정](./manual/model_evaluation.md)|✅|
 |6|[모델 배포 (OpenVINO)](./3_detect/README.md)|✅|
 
 </div>

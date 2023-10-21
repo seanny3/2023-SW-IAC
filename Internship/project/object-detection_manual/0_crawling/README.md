@@ -20,7 +20,7 @@
 [Kaggle: Your Machine Learning and Data Science Community]
 
 <p align="center">
-  <img src="./img/2/2_1.png" align="center" width="90%">
+  <img src="../manual/img/2/2_1.png" align="center" width="90%">
 </p>
 
 - 데이터 분석 및 머신러닝에 대한 학습 플랫폼이자, 경쟁할 수 있는 플랫폼이다.
@@ -29,7 +29,7 @@
 ## 🌐 [Roboflow](https://universe.roboflow.com/)
 
 <p align="center">
-  <img src="./img/2/2_2.png" align="center" width="80%">
+  <img src="../manual/img/2/2_2.png" align="center" width="80%">
 </p>
 
 - Roboflow는 컴퓨터 비전 기술을 이용해 다양한 애플리케이션을 만들 수 있도록 지원해주는 서비스이다.
@@ -40,11 +40,11 @@
 ## 🌐 [AI-Hub](https://aihub.or.kr/)
 
 <p align="center">
-  <img src="./img/2/2_3.png" align="center" width="100%">
+  <img src="../manual/img/2/2_3.png" align="center" width="100%">
 </p>
 
 <p align="center">
-  <img src="./img/2/2_4.png" align="center" width="100%">
+  <img src="../manual/img/2/2_4.png" align="center" width="100%">
 </p>
 
 - AI-Hub는 한국지능정보사회진흥원이 운영하는 AI 통합 플랫폼이다.
