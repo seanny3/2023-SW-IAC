@@ -1,6 +1,2 @@
-ShortTerm-Internship/project/ML_manual/1_labeling/data/img
-ShortTerm-Internship/project/ML_manual/1_labeling/data/best.pt
-ShortTerm-Internship/project/ML_manual/1_labeling/output.zip
-ShortTerm-Internship/project/estimate_driver_height/car_info
-ShortTerm-Internship/project/estimate_driver_height/database
-ShortTerm-Internship/project/estimate_driver_height/img
+IAC/car-classification/data/*
+IAC/car-classification/unicom+ViT-B32/*
