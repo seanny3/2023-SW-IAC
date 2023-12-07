@@ -12,7 +12,7 @@ def rename(config):
     
     for file in tqdm(img_list, ncols = 80, desc="rename"):
         time_stamp = datetime.now().strftime("%Y%m%d")
-        rand_str = str(uuid.uuid4().hex[:6])
+        rand_str = str(uuid.uuid4().hex[:10])
         os.rename(file, f"{config['target']}/{time_stamp}_{rand_str}.jpg")
     
     
